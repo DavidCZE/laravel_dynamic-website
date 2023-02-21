@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Produkty;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Všechny produkty
 Route::get('/', function () {
-    return view('welcome');
+    return view('uvod', [
+        'heading' => 'Náš E-Shop',
+        'produkty' => Produkty::all()
+    ]);
+});
+
+// Jednotlivé produkty
+Route::get('/produkty/{id}', function($id) {
+    return view('produkt', [
+        'produkt' => Produkty::find($id)
+    ]);
 });
