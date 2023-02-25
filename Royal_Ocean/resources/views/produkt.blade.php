@@ -1,2 +1,7 @@
-<h2>{{$produkt['title']}}</h2>
-<p>{{$produkt['description']}}</p>
+@extends('layout')
+
+@section('content')
+<h2>{{$produkt['nazev']}}</h2>
+<p>{{$produkt['popisek']}}</p>
+
+@endsection

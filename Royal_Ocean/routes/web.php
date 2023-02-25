@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 // Jednotlivé produkty
-Route::get('/produkty/{id}', function($id) {
+Route::get('/uvod/{id}', function($id) {
     return view('produkt', [
         'produkt' => Produkty::find($id)
     ]);
