@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('produkty', function (Blueprint $table) {
             $table->id();
             $table->string('nazev');
-            $table->string('tagy');
             $table->integer('rok vyroby');
             $table->longText('popisek');
             $table->timestamps();

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h2>{{$produkt['nazev']}}</h2>
+<h2 class="font-bold">{{$produkt['nazev']}}</h2>
 <p>{{$produkt['popisek']}}</p>
 
 @endsection

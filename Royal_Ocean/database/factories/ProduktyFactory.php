@@ -17,8 +17,7 @@ class ProduktyFactory extends Factory
     public function definition(): array
     {
         return [
-            'nazev' => $this->faker->sentence(),
-            'tagy' => 'plachetnice, motorová loď',
+            'nazev' => $this->faker->firstNameFemale(),
             'rok vyroby' => $this->faker->year(),
             'popisek' => $this->faker->paragraph(7),
 

@@ -16,14 +16,14 @@ use App\Models\Produkty;
 
 //Všechny produkty
 Route::get('/', function () {
-    return view('uvod', [
+    return view('produkty', [
         'heading' => 'Náš E-Shop',
         'produkty' => Produkty::all()
     ]);
 });
 
 // Jednotlivé produkty
-Route::get('/uvod/{id}', function($id) {
+Route::get('/produkty/{id}', function($id) {
     return view('produkt', [
         'produkt' => Produkty::find($id)
     ]);
