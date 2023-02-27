@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+@include('partials.hero')
 <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 
 
@@ -11,8 +12,8 @@
 <div class="bg-gray-50 border border-gray-200 rounded p-6">
     <div class="flex">
         <img
-            class="hidden w-48 mr-6 md:block"
-            src="images/royal-ocean-low-resolution-logo-black-on-white-background.png"
+            class="hidden w-48 mr-6 md:block object-contain"
+            src="{{asset('images/royal-ocean-low-resolution-logo-black-on-white-background.png')}}"
             alt=""
         />
         <div>
@@ -21,6 +22,9 @@
             </h3>
             <div class="text-lg mt-4">
                 <i class="fa-solid"></i>{{$produkt['rok vyroby']}}
+            </div>
+            <div>
+                <p class="mt-5 text-xl">{{$produkt->uvod}}</p>
             </div>
         </div>
     </div>

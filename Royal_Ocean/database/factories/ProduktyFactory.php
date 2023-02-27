@@ -19,6 +19,7 @@ class ProduktyFactory extends Factory
         return [
             'nazev' => $this->faker->firstNameFemale(),
             'rok vyroby' => $this->faker->year(),
+            'uvod' => $this->faker->paragraph(1),
             'popisek' => $this->faker->paragraph(7),
 
         ];

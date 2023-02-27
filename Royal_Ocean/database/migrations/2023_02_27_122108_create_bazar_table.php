@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nazev');
             $table->integer('rok vyroby');
+            $table->string('uvod');
             $table->longText('popisek');
             $table->timestamps();
         });
