@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Produkty;
+use App\Models\Bazar;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,20 @@ Route::get('/', function () {
 Route::get('/produkty/{id}', function($id) {
     return view('produkt', [
         'produkt' => Produkty::find($id)
+    ]);
+});
+
+//Bazar
+Route::get('/bazar', function (){
+    return view('bazar', [
+        'heading' => 'Náš bazar',
+        'bazar' => Bazar::all()
+    ]);
+});
+
+//Bazar - 1 produkt - bazarItem
+Route::get('/bazar/{id}', function($id) {
+    return view('bazarItem', [
+        'bazarItem' => Bazar::find($id)
     ]);
 });

@@ -8,7 +8,8 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <h1 class="text-3xl font-bold text-indigo-600">Royal Ocean</h1>
+    <h1 class="text-3xl font-bold text-indigo-600"><a href="/">Royal Ocean</a></h1>
+    <h3><a href="/bazar">Bazar</a></h3>
     {{-- VIEW OUTPUT --}}
     @yield('content')
 </body>
