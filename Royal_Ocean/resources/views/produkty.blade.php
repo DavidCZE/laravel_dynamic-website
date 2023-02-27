@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-<h1 class="font-bold">{{$heading}}</h1>
 <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 
 
@@ -13,7 +12,7 @@
     <div class="flex">
         <img
             class="hidden w-48 mr-6 md:block"
-            src="images/acme.png"
+            src="images/royal-ocean-low-resolution-logo-black-on-white-background.png"
             alt=""
         />
         <div>
