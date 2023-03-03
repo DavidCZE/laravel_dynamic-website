@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\BazarController;
+use App\Http\Controllers\ProduktyController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Produkty;
-use App\Models\Bazar;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,31 +17,13 @@ use App\Models\Bazar;
 */
 
 //Všechny produkty
-Route::get('/', function () {
-    return view('produkty', [
-        'heading' => 'Náš E-Shop',
-        'produkty' => Produkty::all()
-    ]);
-});
+Route::get('/', [ProduktyController::class, 'index']);
 
 // Jednotlivé produkty
-Route::get('/produkty/{id}', function($id) {
-    return view('produkt', [
-        'produkt' => Produkty::find($id)
-    ]);
-});
+Route::get('/produkty/{produkt}', [ProduktyController::class, 'show']);
 
 //Bazar
-Route::get('/bazar', function (){
-    return view('bazar', [
-        'heading' => 'Náš bazar',
-        'bazar' => Bazar::all()
-    ]);
-});
+Route::get('/bazar', [BazarController::class, 'index']);
 
 //Bazar - 1 produkt - bazarItem
-Route::get('/bazar/{id}', function($id) {
-    return view('bazarItem', [
-        'bazarItem' => Bazar::find($id)
-    ]);
-});
+Route::get('/bazar/{bazarItem}', [BazarController::class, 'show']);
