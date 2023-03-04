@@ -18,9 +18,12 @@ class BazarFactory extends Factory
     {
         return [
             'nazev' => $this->faker->firstNameMale(),
-            'rok vyroby' => $this->faker->year(),
+            'znacka' => $this->faker->company(),
+            'rokVyroby' => $this->faker->year(),
             'uvod' => $this->faker->paragraph(1),
             'popisek' => $this->faker->paragraph(7),
+            'email' => $this->faker->email(),
+            'cislo' =>$this->faker->phoneNumber(),
         ];
     }
 }

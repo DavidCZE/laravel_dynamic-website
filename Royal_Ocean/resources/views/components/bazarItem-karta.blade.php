@@ -12,7 +12,10 @@
                 <a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem->nazev}}</a>
             </h3>
             <div class="text-lg mt-4">
-                <i class="fa-solid"></i><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem['rok vyroby']}}</a>
+                <i class="fa-solid"></i><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem['znacka']}}</a>
+            </div>
+            <div class="text-lg mt-4">
+                <i class="fa-solid"></i><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem['rokVyroby']}}</a>
             </div>
             <div>
                 <p class="mt-5 text-xl"><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem->uvod}}</a></p>

@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('bazar', function (Blueprint $table) {
             $table->id();
             $table->string('nazev');
-            $table->integer('rok vyroby');
+            $table->string('znacka');
+            $table->string('rokVyroby');
             $table->string('uvod');
             $table->longText('popisek');
+            $table->string('email');
+            $table->string('cislo');
             $table->timestamps();
         });
     }

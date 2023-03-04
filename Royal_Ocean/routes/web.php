@@ -25,5 +25,12 @@ Route::get('/produkty/{produkt}', [ProduktyController::class, 'show']);
 //Bazar
 Route::get('/bazar', [BazarController::class, 'index']);
 
+//Form - Přidat produkt do bazaru
+Route::get('/bazar/create', [BazarController::class, 'create']);
+
+//Uložení BazarItem dat
+Route::post('/bazar', [BazarController::class, 'store']);
+
+
 //Bazar - 1 produkt - bazarItem
 Route::get('/bazar/{bazarItem}', [BazarController::class, 'show']);
