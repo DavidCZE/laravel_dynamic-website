@@ -11,10 +11,8 @@ class="relative h-80 flex flex-col justify-center align-center text-center space
         Royal</a><span class="text-black"><a href="/">Ocean</a></span>
     </h1>
     <div>
-        <a
-            href="register.html"
-            class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
-            >Registrovat se</a
+        <i class="text-white py-2 px-4 mt-2">
+        Lorem ipsum</i
         >
     </div>
 </div>
