@@ -4,13 +4,14 @@
 <x-karta class="max-w-lg mx-auto mt-24 p-10">
 <header class="text-center">
     <h2 class="text-2xl font-bold uppercase mb-1">
-        Vytvořit inzerát
+        Upravit inzerát
     </h2>
-    <p class="mb-4">Nabídněte vaše jachtařské vybavení k prodeji</p>
+    <p class="mb-4">Upravit <strong>{{$bazarItem->nazev}}</strong></p>
 </header>
 
-<form method="POST" action="/bazar" enctype="multipart/form-data">
+<form method="POST" action="/bazar/{{$bazarItem->id}}" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <div class="mb-6">
         <label
             for="rokVyroby"
@@ -21,7 +22,7 @@
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
             name="rokVyroby"
-            value="{{old('rokVyroby')}}"
+            value="{{$bazarItem->rokVyroby}}"
         />
 
         @error('rokVyroby')
@@ -39,7 +40,7 @@
             class="border border-gray-200 rounded p-2 w-full"
             name="nazev"
             placeholder="Příklad: Jachtařské rukavice"
-            value="{{old('nazev')}}"
+            value="{{$bazarItem->nazev}}"
         />
 
         @error('nazev')
@@ -59,7 +60,7 @@
             class="border border-gray-200 rounded p-2 w-full"
             name="znacka"
             placeholder="Příklad: Gill"
-            value="{{old('znacka')}}"
+            value="{{$bazarItem->znacka}}"
         />
 
         @error('znacka')
@@ -76,7 +77,7 @@
             type="email"
             class="border border-gray-200 rounded p-2 w-full"
             name="email"
-            value="{{old('email')}}"
+            value="{{$bazarItem->email}}"
         />
 
         @error('email')
@@ -96,7 +97,7 @@
             type="tel"
             class="border border-gray-200 rounded p-2 w-full"
             name="cislo"
-            value="{{old('cislo')}}"
+            value="{{$bazarItem->cislo}}"
         />
 
         @error('cislo')
@@ -116,7 +117,7 @@
             class="border border-gray-200 rounded p-2 w-full"
             name="lokace"
             placeholder="Příklad: České Budějovice"
-            value="{{old('lokace')}}"
+            value="{{$bazarItem->lokace}}"
         />
 
         @error('lokace')
@@ -133,8 +134,9 @@
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
             name="uvodniFotka"
-            value="{{old('uvodniFotka')}}"
         />
+        <img class="w-48 mr-6 mb-6" src="{{$bazarItem->uvodniFotka ? 
+            asset('storage/' . $bazarItem->uvodniFotka) : asset('/images/royal-ocean-low-resolution-logo-white-on-black-background.png')}}"/>
         @error('uvodniFotka')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
@@ -173,7 +175,7 @@
             name="popisek"
             rows="10"
             placeholder="Napište všechny relevantní informace">
-            {{old('popisek')}}
+            {{$bazarItem->popisek}}
             </textarea>
 
         @error('popisek')
@@ -194,7 +196,7 @@
             name="uvod"
             rows="2"
             placeholder="Popište produkt jednou nebo dvěma větami (bude se zobrazovat v přehledu produktů)">
-            {{old('uvod')}}
+            {{$bazarItem->uvod}}
             </textarea>
 
         @error('uvod')
@@ -207,7 +209,7 @@
         <button
             class="bg-royalblue text-white rounded py-2 px-4 hover:bg-black"
         >
-            Inzerovat
+            Upravit
         </button>
 
         <a href="/bazar" class="text-black ml-4 hover:text-royalblue"> Zpět do bazaru</a>

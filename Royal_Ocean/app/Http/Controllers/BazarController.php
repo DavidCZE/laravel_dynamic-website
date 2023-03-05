@@ -10,7 +10,7 @@ class BazarController extends Controller
     // Všechny inzeráty
     public function index() {
         return view('bazar.index-bazar', [
-            'bazar' => Bazar::latest()->filter(request(['search']))->get()
+            'bazar' => Bazar::latest()->filter(request(['search']))->paginate(4)
         ]);
     }
 
@@ -35,11 +35,49 @@ class BazarController extends Controller
             'uvod' => 'required',
             'popisek' => 'required',
             'email' => ['required', 'email'],
-            'cislo' => 'required'
+            'cislo' => 'required',
+            'lokace' => 'required'
         ]);
+
+        if($request->hasFile('uvodniFotka')) {
+            $formFieldsBazar['uvodniFotka'] = $request->file('uvodniFotka')->store('uvodniFotkaBazar', 'public');
+        }
 
         Bazar::create($formFieldsBazar);
 
         return redirect('/bazar')->with('message', 'Inzerát přidán');
+    }
+
+    //Edit form
+    public function edit(Bazar $bazarItem) {
+        return view('bazar.edit-bazarItem', ['bazarItem' => $bazarItem]);
+    }
+
+    //Update
+    public function update(Request $request, Bazar $bazarItem) {
+        $formFieldsBazar = $request->validate([
+            'nazev' => 'required',
+            'znacka' => 'required',
+            'rokVyroby' => 'required',
+            'uvod' => 'required',
+            'popisek' => 'required',
+            'email' => ['required', 'email'],
+            'cislo' => 'required',
+            'lokace' => 'required'
+        ]);
+
+        if($request->hasFile('uvodniFotka')) {
+            $formFieldsBazar['uvodniFotka'] = $request->file('uvodniFotka')->store('uvodniFotkaBazar', 'public');
+        }
+
+        $bazarItem->update($formFieldsBazar);
+
+        return back()->with('message', 'Inzerát upraven');
+    }
+
+    //Vymazat bazarItem
+    public function delete(Bazar $bazarItem) {
+        $bazarItem->delete();
+        return redirect('/bazar')->with('message', 'Inzerát byl smazán');
     }
 }

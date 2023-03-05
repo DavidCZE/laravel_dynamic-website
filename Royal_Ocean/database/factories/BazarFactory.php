@@ -22,8 +22,9 @@ class BazarFactory extends Factory
             'rokVyroby' => $this->faker->year(),
             'uvod' => $this->faker->paragraph(1),
             'popisek' => $this->faker->paragraph(7),
+            'lokace'=> $this->faker->city(),
             'email' => $this->faker->email(),
-            'cislo' =>$this->faker->phoneNumber(),
+            'cislo' => $this->faker->phoneNumber(),
         ];
     }
 }

@@ -16,4 +16,8 @@
 
 </div>
 
+<div class="mt-6 pt-4">
+    {{$bazar->links()}}
+</div>
+
 @endsection

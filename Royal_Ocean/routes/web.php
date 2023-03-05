@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BazarController;
 use App\Http\Controllers\ProduktyController;
-use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -31,6 +32,17 @@ Route::get('/bazar/create', [BazarController::class, 'create']);
 //Uložení BazarItem dat
 Route::post('/bazar', [BazarController::class, 'store']);
 
+//Úprava bazarItem form
+Route::get('/bazar/{bazarItem}/edit', [BazarController::class, 'edit']);
+
+//Upravit bazarIten
+Route::put('/bazar/{bazarItem}', [BazarController::class, 'update']);
+
+//Vymazat bazarItem
+Route::delete('/bazar/{bazarItem}', [BazarController::class, 'delete']);
 
 //Bazar - 1 produkt - bazarItem
 Route::get('/bazar/{bazarItem}', [BazarController::class, 'show']);
+
+//Register form
+Route::get('/register', [UserController::class, 'register']);

@@ -2,8 +2,8 @@
 
 @section('content')
 
-<a href="/" class="inline-block text-black ml-4 mb-4">
-    <i class="fa-solid fa-arrow-left"></i> Zpět</a>
+<a href="/" class="inline-block text-black ml-4 mb-4 hover:text-gray-400">
+    <i class="fa-solid fa-arrow-left hover:text-gray-400"></i> Zpět</a>
 <div class="mx-4">
 <x-karta class="p-10">
     <div

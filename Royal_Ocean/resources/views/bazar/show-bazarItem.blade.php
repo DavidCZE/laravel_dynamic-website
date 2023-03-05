@@ -2,16 +2,17 @@
 
 @section('content')
 
-<a href="/bazar" class="inline-block text-black ml-4 mb-4">
-    <i class="fa-solid fa-arrow-left"></i> Zpět</a>
+<a href="/bazar" class="inline-block text-black ml-4 mb-4 hover:text-gray-400">
+    <i class="fa-solid fa-arrow-left hover:text-gray-400"></i> Zpět</a>
 <div class="mx-4">
 <x-karta class="p-10">
-    <div
-        class="flex flex-col items-center justify-center text-center">
-
+    <div class="flex flex-col items-center justify-center text-center">
+        <img class="w-48 mr-6 mb-6" src="{{$bazarItem->uvodniFotka ? 
+        asset('storage/' . $bazarItem->uvodniFotka) : asset('/images/royal-ocean-low-resolution-logo-white-on-black-background.png')}}"/>
         <h3 class="text-4xl mb-2 font-bold">{{$bazarItem->nazev}}</h3>
         <div class="text-xl mb-4">{{$bazarItem["znacka"]}}</div>
         <div class="text-xl mb-4">{{$bazarItem["rokVyroby"]}}</div>
+        <div class="text-xl mb-4">{{$bazarItem["lokace"]}}</div>
         
         <div class="border border-gray-200 w-full mb-6"></div>
         <div>
@@ -32,7 +33,17 @@
             Číslo prodejce: {{$bazarItem->cislo}} </p>
         </div>
     </div>
+
+
 </x-karta>
 </div>
-
+<x-karta class="mt-4 p-10 flex space-x-6">
+    <a href="/bazar/{{$bazarItem->id}}/edit" class="hover:text-royalblue">
+        <i class="fa-solid fa-pencil"></i> Upravit </a>
+    <form method="POST" action='/bazar/{{$bazarItem->id}}'>
+    @csrf
+    @method('DELETE')
+    <button class="text-red-500 hover:font-black"><i class="fa-solid fa-trash"></i> Vymazat</button>
+    </form>
+</x-karta>
 @endsection

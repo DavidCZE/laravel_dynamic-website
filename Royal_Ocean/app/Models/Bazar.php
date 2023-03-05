@@ -9,7 +9,7 @@ class Bazar extends Model{
     public $table = 'bazar';
     use HasFactory;
 
-    protected $fillable = ['nazev', 'znacka', 'rokVyroby', 'uvod', 'popisek', 'email', 'cislo'];
+    protected $fillable = ['nazev', 'znacka', 'rokVyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodniFotka'];
 
     public function scopeFilter($query, array $filters) {
        
@@ -17,7 +17,8 @@ class Bazar extends Model{
             $query->where('nazev', 'like', '%' .request('search') . '%')
                 ->orWhere('rokVyroby', 'like', '%' .request('search') . '%')
                 ->orWhere('uvod', 'like', '%' .request('search') . '%')
-                ->orWhere('popisek', 'like', '%' .request('search') . '%');
+                ->orWhere('popisek', 'like', '%' .request('search') . '%')
+                ->orWhere('lokace', 'like', '%' .request('search') . '%');
         }
 
     }

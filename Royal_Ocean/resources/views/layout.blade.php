@@ -51,11 +51,11 @@
             </ul>
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
-                    <a href="register.html" class="hover:text-royalblue">
+                    <a href="/register" class="hover:text-royalblue">
                         <i class="fa-solid fa-user-plus"></i> Registrovat se</a>
                 </li>
                 <li>
-                    <a href="login.html" class="hover:text-royalblue">
+                    <a href="/login" class="hover:text-royalblue">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Přihlásit se</a>
                 </li>
