@@ -12,7 +12,7 @@
                 <a href="/produkty/{{$produkt['id']}}">{{$produkt->nazev}}</a>
             </h3>
             <div class="text-lg mt-4">
-                <i class="fa-solid"></i><a href="/produkty/{{$produkt['id']}}">{{$produkt['rok vyroby']}}</a>
+                <i class="fa-solid"></i><a href="/produkty/{{$produkt['id']}}">{{$produkt['rok_vyroby']}}</a>
             </div>
             <div>
                 <p class="mt-5 text-xl"><a href="/produkty/{{$produkt['id']}}">{{$produkt->uvod}}</a></p>

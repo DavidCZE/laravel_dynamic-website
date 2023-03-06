@@ -31,7 +31,7 @@ class BazarController extends Controller
         $formFieldsBazar = $request->validate([
             'nazev' => 'required',
             'znacka' => 'required',
-            'rokVyroby' => 'required',
+            'rok_vyroby' => 'required',
             'uvod' => 'required',
             'popisek' => 'required',
             'email' => ['required', 'email'],
@@ -39,8 +39,8 @@ class BazarController extends Controller
             'lokace' => 'required'
         ]);
 
-        if($request->hasFile('uvodniFotka')) {
-            $formFieldsBazar['uvodniFotka'] = $request->file('uvodniFotka')->store('uvodniFotkaBazar', 'public');
+        if($request->hasFile('uvodni_fotka')) {
+            $formFieldsBazar['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
 
         Bazar::create($formFieldsBazar);
@@ -58,7 +58,7 @@ class BazarController extends Controller
         $formFieldsBazar = $request->validate([
             'nazev' => 'required',
             'znacka' => 'required',
-            'rokVyroby' => 'required',
+            'rok_vyroby' => 'required',
             'uvod' => 'required',
             'popisek' => 'required',
             'email' => ['required', 'email'],
@@ -66,8 +66,8 @@ class BazarController extends Controller
             'lokace' => 'required'
         ]);
 
-        if($request->hasFile('uvodniFotka')) {
-            $formFieldsBazar['uvodniFotka'] = $request->file('uvodniFotka')->store('uvodniFotkaBazar', 'public');
+        if($request->hasFile('uvodni_fotka')) {
+            $formFieldsBazar['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
 
         $bazarItem->update($formFieldsBazar);

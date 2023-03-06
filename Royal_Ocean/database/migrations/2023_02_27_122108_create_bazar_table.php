@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('bazar', function (Blueprint $table) {
             $table->id();
             $table->string('nazev');
-            $table->string('uvodniFotka')->nullable();
+            $table->string('uvodni_fotka')->nullable();
             $table->string('znacka');
-            $table->string('rokVyroby');
+            $table->string('rok_vyroby');
             $table->string('uvod');
             $table->longText('popisek');
             $table->string('lokace');

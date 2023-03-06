@@ -9,13 +9,13 @@ class Bazar extends Model{
     public $table = 'bazar';
     use HasFactory;
 
-    protected $fillable = ['nazev', 'znacka', 'rokVyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodniFotka'];
+    protected $fillable = ['nazev', 'znacka', 'rok_vyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodni_fotka'];
 
     public function scopeFilter($query, array $filters) {
        
         if($filters['search'] ?? false) {
             $query->where('nazev', 'like', '%' .request('search') . '%')
-                ->orWhere('rokVyroby', 'like', '%' .request('search') . '%')
+                ->orWhere('rok_vyroby', 'like', '%' .request('search') . '%')
                 ->orWhere('uvod', 'like', '%' .request('search') . '%')
                 ->orWhere('popisek', 'like', '%' .request('search') . '%')
                 ->orWhere('lokace', 'like', '%' .request('search') . '%');

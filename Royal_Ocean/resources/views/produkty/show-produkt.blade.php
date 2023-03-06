@@ -10,7 +10,7 @@
         class="flex flex-col items-center justify-center text-center">
 
         <h3 class="text-4xl mb-2 font-bold">{{$produkt->nazev}}</h3>
-        <div class="text-xl mb-4">{{$produkt["rok vyroby"]}}</div>
+        <div class="text-xl mb-4">{{$produkt["rok_vyroby"]}}</div>
         
         <div class="border border-gray-200 w-full mb-6"></div>
         <div>

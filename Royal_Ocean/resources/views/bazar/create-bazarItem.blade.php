@@ -13,18 +13,18 @@
     @csrf
     <div class="mb-6">
         <label
-            for="rokVyroby"
+            for="rok-Vyroby"
             class="inline-block text-lg mb-2"
             >Rok výroby</label
         >
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="rokVyroby"
-            value="{{old('rokVyroby')}}"
+            name="rok_vyroby"
+            value="{{old('rok_Vyroby')}}"
         />
 
-        @error('rokVyroby')
+        @error('rok_vyroby')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
 
@@ -126,16 +126,16 @@
     </div>
 
     <div class="mb-6">
-        <label for="uvodniFotka" class="inline-block text-lg mb-2">
+        <label for="uvodni_fotka" class="inline-block text-lg mb-2">
             Úvodní fotka
         </label>
         <input
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
-            name="uvodniFotka"
-            value="{{old('uvodniFotka')}}"
+            name="uvodni_fotka"
+            value="{{old('uvodni_fotka')}}"
         />
-        @error('uvodniFotka')
+        @error('uvodni_fotka')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
     </div>

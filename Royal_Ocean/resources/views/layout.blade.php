@@ -50,6 +50,16 @@
                 </li>
             </ul>
             <ul class="flex space-x-6 mr-6 text-lg">
+                @auth
+                <li>
+                    <span class="font-bold-uppercase">Vítej {{auth()->user()->name}}</span>
+                </li>
+                <li>
+                    <a href="/bazar/manage" class="hover:text-royalblue">
+                        <i class="fa-solid fa-gear"></i>
+                        Spravovat inzeráty</a>
+                </li>
+                @else
                 <li>
                     <a href="/register" class="hover:text-royalblue">
                         <i class="fa-solid fa-user-plus"></i> Registrovat se</a>
@@ -59,6 +69,7 @@
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Přihlásit se</a>
                 </li>
+                @endauth
             </ul>
         </nav>
 
