@@ -46,3 +46,6 @@ Route::get('/bazar/{bazarItem}', [BazarController::class, 'show']);
 
 //Register form
 Route::get('/register', [UserController::class, 'register']);
+
+//Create New User
+Route::post('/users', [UserController::class, 'store']);
