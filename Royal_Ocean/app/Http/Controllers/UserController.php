@@ -33,4 +33,36 @@ class UserController extends Controller
 
         return redirect('/')->with('message', 'Profil byl vytvořen a přihlášen');
     }
+
+    //Logout
+    public function logout(Request $request) {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+
+        return redirect('/')->with('message', 'Uživatel odhlášen');
+    }
+
+    //Show login form
+    public function login() {
+        return view('users.login');
+    }
+
+    //authenticate User
+    public function authenticate(Request $request) {
+        $formFieldsUser = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+
+        if(auth()->attempt($formFieldsUser)) {
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message', 'Uživatel přihlášen');
+        }
+
+        return back()->withErrors(['email' => 'Špatné přihlašovací údaje'])->onlyInput('email');
+    }
 }
