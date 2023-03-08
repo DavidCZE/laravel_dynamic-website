@@ -162,45 +162,21 @@
     </div>--}}
 
     <div class="mb-6">
-        <label
-            for="popisek"
-            class="inline-block text-lg mb-2"
-        >
-            Popis
-        </label>
-        <textarea
-            class="border border-gray-200 rounded p-2 w-full"
-            name="popisek"
-            rows="10"
-            placeholder="Napište všechny relevantní informace">
-            {{old('popisek')}}
-            </textarea>
-
+        <label for="popisek"class="inline-block text-lg mb-2">Popis</label>
+        <textarea class="border border-gray-200 rounded p-2 w-full"name="popisek"rows="10"
+            placeholder="Napište všechny relevantní informace">{{old('popisek')}}</textarea>
         @error('popisek')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
-
     </div>
 
     <div class="mb-6">
-        <label
-            for="uvod"
-            class="inline-block text-lg mb-2"
-        >
-            Úvodní věta
-        </label>
-        <textarea
-            class="border border-gray-200 rounded p-2 w-full"
-            name="uvod"
-            rows="2"
-            placeholder="Popište produkt jednou nebo dvěma větami (bude se zobrazovat v přehledu produktů)">
-            {{old('uvod')}}
-            </textarea>
-
+        <label for="uvod"class="inline-block text-lg mb-2">Úvodní věta</label>
+        <textarea class="border border-gray-200 rounded p-2 w-full"name="uvod"rows="2"
+            placeholder="Popište produkt jednou nebo dvěma větami (bude se zobrazovat v přehledu produktů)">{{old('uvod')}}</textarea>
         @error('uvod')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
-
     </div>
 
     <div class="mb-6">
