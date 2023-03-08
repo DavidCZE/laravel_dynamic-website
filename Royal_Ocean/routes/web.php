@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BazarController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProduktyController;
 
 
@@ -16,9 +18,17 @@ use App\Http\Controllers\ProduktyController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//Homepage
+Route::get('/', [HomeController::class, 'index']);
+
+//All blog articles
+Route::get('/blog', [BlogController::class, 'index']);
+
+//Jednotlivé blogItems
+Route::get('/blog/{blogItem}', [BlogController::class, 'show']);
 
 //Všechny produkty
-Route::get('/', [ProduktyController::class, 'index']);
+Route::get('/produkty', [ProduktyController::class, 'index']);
 
 // Jednotlivé produkty
 Route::get('/produkty/{produkt}', [ProduktyController::class, 'show']);

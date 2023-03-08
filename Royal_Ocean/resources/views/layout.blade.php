@@ -37,16 +37,13 @@
                     <a href="/" class="hover:text-royalblue">Domů</a>
                 </li>
                 <li>
-                    <a href="/" class="hover:text-royalblue">Naše lodě</a>
+                    <a href="/produkty" class="hover:text-royalblue">Produkty</a>
                 </li>
                 <li>
                     <a href="/bazar" class="hover:text-royalblue">Bazar</a>
                 </li>
                 <li>
-                    <a href="/bazar" class="hover:text-royalblue">Blog</a>
-                </li>
-                <li>
-                    <a href="/bazar" class="hover:text-royalblue">Náš Tým</a>
+                    <a href="/blog" class="hover:text-royalblue">Blog</a>
                 </li>
             </ul>
             <ul class="flex space-x-6 mr-6 text-lg">

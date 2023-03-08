@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
+        \App\Models\Blog::factory(8)->create();
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
