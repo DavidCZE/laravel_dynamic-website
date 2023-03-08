@@ -7,11 +7,11 @@ class="relative h-80 flex flex-col justify-center align-center text-center space
 ></div>
 
 <div class="z-10">
-    <h1 class="text-6xl font-bold uppercase text-white"><a href="/">
-        Royal</a><span class="text-black"><a href="/">Ocean</a></span>
+    <h1 class="text-6xl font-bold uppercase text-black"><a href="/">
+        Royal</a><span class="text-white"><a href="/">Ocean</a></span>
     </h1>
     <div>
-        <i class="text-white py-2 px-4 mt-2">
+        <i class="text-black py-2 px-4 mt-2">
         Lorem ipsum</i
         >
     </div>

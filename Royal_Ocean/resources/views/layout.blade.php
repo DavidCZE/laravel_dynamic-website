@@ -27,10 +27,10 @@
         </script>
         <title>Royal Ocean</title>
     </head>
-    <body class="mb-48">
-        <nav class="flex justify-between items-center mb-4">
+    <body>
+        <nav class="flex justify-between items-center">
             <a href="/"
-                ><img class="w-36" src="images/royal-ocean-low-resolution-color-logo.png" alt="" class="logo"
+                ><img class="w-36" src="images/logo.png" alt=""
             /></a>
             <ul class="flex align-middle content-center space-x-5">
                 <li>
@@ -52,7 +52,7 @@
             <ul class="flex space-x-6 mr-6 text-lg">
                 @auth
                 <li>
-                    <span class="font-bold-uppercase">Vítej {{auth()->user()->name}}</span>
+                    <span class="font-bold-uppercase"><strong>{{auth()->user()->name}}</strong>, vítej u nás!</span>
                 </li>
                 <li>
                     <a href="/bazar/manage" class="hover:text-royalblue">
@@ -63,7 +63,7 @@
                     <form class="inline" method="POST" action="/logout">
                         @csrf
                         <button type="submit">
-                            <i class="fa-solid fa-door-closed"></i>
+                            <i class="fa-solid fa-door-closed hover:text-royalblue"></i>
                         </button>
                     </form>
                 </li>
