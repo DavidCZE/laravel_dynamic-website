@@ -51,10 +51,10 @@ class UserController extends Controller
     }
 
     //authenticate User
-    public function authenticate(Request $request) {
+    public function __invoke(Request $request) {
         $formFieldsUser = $request->validate([
             'email' => ['required', 'email'],
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         if(auth()->attempt($formFieldsUser)) {
