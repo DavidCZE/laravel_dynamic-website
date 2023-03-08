@@ -28,7 +28,7 @@ class BazarController extends Controller
 
     //Uložit bazarItem data
     public function store(Request $request) {
-        $formFieldsBazar = $request->validate([
+        $formFields = $request->validate([
             'nazev' => 'required',
             'znacka' => 'required',
             'rok_vyroby' => 'required',
@@ -40,10 +40,12 @@ class BazarController extends Controller
         ]);
 
         if($request->hasFile('uvodni_fotka')) {
-            $formFieldsBazar['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
+            $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
 
-        Bazar::create($formFieldsBazar);
+        $formFields['user_id'] = auth()->id();
+
+        Bazar::create($formFields);
 
         return redirect('/bazar')->with('message', 'Inzerát přidán');
     }
@@ -55,7 +57,12 @@ class BazarController extends Controller
 
     //Update
     public function update(Request $request, Bazar $bazarItem) {
-        $formFieldsBazar = $request->validate([
+        //Make sure logged in user is owner
+        if($bazarItem->user_id != auth()->id()) {
+            abort(403, 'Neoprávněný příkaz');
+        }
+
+        $formFields = $request->validate([
             'nazev' => 'required',
             'znacka' => 'required',
             'rok_vyroby' => 'required',
@@ -67,17 +74,27 @@ class BazarController extends Controller
         ]);
 
         if($request->hasFile('uvodni_fotka')) {
-            $formFieldsBazar['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
+            $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
 
-        $bazarItem->update($formFieldsBazar);
+        $bazarItem->update($formFields);
 
         return back()->with('message', 'Inzerát upraven');
     }
 
     //Vymazat bazarItem
     public function delete(Bazar $bazarItem) {
+        //Make sure logged in user is owner
+        if($bazarItem->user_id != auth()->id()) {
+            abort(403, 'Neoprávněný příkaz');
+        }
+        
         $bazarItem->delete();
         return redirect('/bazar')->with('message', 'Inzerát byl smazán');
+    }
+
+    //Manage bazarItems
+    public function manage() {
+        return view('bazar.manage-bazarItem', ['bazar' => auth()->user()->bazar()->get()]);
     }
 }

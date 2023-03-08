@@ -22,7 +22,7 @@
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
             name="rokVyroby"
-            value="{{$bazarItem->rokVyroby}}"
+            value="{{$bazarItem->rok_vyroby}}"
         />
 
         @error('rokVyroby')
@@ -135,8 +135,8 @@
             class="border border-gray-200 rounded p-2 w-full"
             name="uvodniFotka"
         />
-        <img class="w-48 mr-6 mb-6" src="{{$bazarItem->uvodniFotka ? 
-            asset('storage/' . $bazarItem->uvodniFotka) : asset('/images/royal-ocean-low-resolution-logo-white-on-black-background.png')}}"/>
+        <img class="w-48 mr-6 mb-6" src="{{$bazarItem->uvodni_fotka ? 
+            asset('storage/' . $bazarItem->uvodni_fotka) : asset('/images/royal-ocean-low-resolution-logo-white-on-black-background.png')}}"/>
         @error('uvodniFotka')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror

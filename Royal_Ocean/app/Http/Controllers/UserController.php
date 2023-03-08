@@ -15,7 +15,7 @@ class UserController extends Controller
 
     //Create New User
     public function store(Request $request) {
-        $formFieldsUser = $request->validate([
+        $formFields = $request->validate([
             'name' => ['required', 'min:2'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required|confirmed|min:6',
@@ -23,10 +23,10 @@ class UserController extends Controller
         ]);
 
         //Hash Password
-        $formFieldsUser['password'] = bcrypt($formFieldsUser['password']);
+        $formFields['password'] = bcrypt($formFields['password']);
 
         //Create User
-        $user = User::create($formFieldsUser);
+        $user = User::create($formFields);
 
         //Login
         auth()->login($user);
@@ -52,17 +52,17 @@ class UserController extends Controller
 
     //authenticate User
     public function __invoke(Request $request) {
-        $formFieldsUser = $request->validate([
+        $formFields = $request->validate([
             'email' => ['required', 'email'],
             'password' => 'required',
         ]);
 
-        if(auth()->attempt($formFieldsUser)) {
+        if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
             return redirect('/')->with('message', 'Uživatel přihlášen');
-        }
-
+        } else{
         return back()->withErrors(['email' => 'Špatné přihlašovací údaje'])->onlyInput('email');
+        }
     }
 }

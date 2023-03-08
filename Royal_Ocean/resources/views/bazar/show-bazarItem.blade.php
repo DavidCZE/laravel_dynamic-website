@@ -37,7 +37,7 @@
 
 </x-karta>
 </div>
-<x-karta class="mt-4 p-10 flex space-x-6">
+{{--<x-karta class="mt-4 p-10 flex space-x-6">
     <a href="/bazar/{{$bazarItem->id}}/edit" class="hover:text-royalblue">
         <i class="fa-solid fa-pencil"></i> Upravit </a>
     <form method="POST" action='/bazar/{{$bazarItem->id}}'>
@@ -45,5 +45,5 @@
     @method('DELETE')
     <button class="text-red-500 hover:font-black"><i class="fa-solid fa-trash"></i> Vymazat</button>
     </form>
-</x-karta>
+</x-karta>--}}
 @endsection

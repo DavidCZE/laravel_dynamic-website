@@ -9,7 +9,7 @@ class Bazar extends Model{
     public $table = 'bazar';
     use HasFactory;
 
-    protected $fillable = ['nazev', 'znacka', 'rok_vyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodni_fotka'];
+    protected $fillable = ['nazev', 'user_id', 'znacka', 'rok_vyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodni_fotka'];
 
     public function scopeFilter($query, array $filters) {
        
@@ -21,6 +21,11 @@ class Bazar extends Model{
                 ->orWhere('lokace', 'like', '%' .request('search') . '%');
         }
 
+    }
+
+    //Relationship to user
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

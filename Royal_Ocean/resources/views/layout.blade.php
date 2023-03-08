@@ -81,7 +81,7 @@
             </ul>
         </nav>
 
-        <main>
+        <main class="pb-44">
 
         @yield('content')
         
