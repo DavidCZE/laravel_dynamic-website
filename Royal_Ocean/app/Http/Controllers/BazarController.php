@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bazar;
+use App\Models\BazarImage;
 use Illuminate\Http\Request;
 
 class BazarController extends Controller
@@ -36,12 +37,50 @@ class BazarController extends Controller
             'popisek' => 'required',
             'email' => ['required', 'email'],
             'cislo' => 'required',
-            'lokace' => 'required'
+            'lokace' => 'required',
+            
         ]);
-
+/*
+        $images = $request->file('images');
+    
+    foreach ($images as $image) {
+        $path = $image->store('public/images');
+        $filename = $image->getClientOriginalName();
+        
+        Bazar::create([
+            'filename' => $filename,
+            'path' => $path,
+        ]);
+        }
+*/
         if($request->hasFile('uvodni_fotka')) {
             $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
+/*
+        if($request->hasFile('images')) {
+        foreach ($request->file('images') as $imagefile) {
+            $imagefile->store('images','public');
+         }}
+*/
+        /*
+        $bazarItem = new Bazar;
+        $bazarItem->nazev = $request->nazev;
+        $bazarItem->popisek = $request->popisek;
+        $bazarItem->popisek = $request->popisek;
+        $bazarItem->popisek = $request->popisek;
+        $bazarItem->popisek = $request->popisek;
+        $bazarItem->popisek = $request->popisek;
+        $bazarItem->save();
+        */
+        /*
+        foreach ($request->file('images') as $imagefile) {
+            $image = new BazarImage;
+            $path = $imagefile->store('/images/resource', ['disk' =>   'my_files']);
+            $image->url = $path;
+            $image->bazar_id = $bazar->id;
+            $image->save();
+        }
+        */
 
         $formFields['user_id'] = auth()->id();
 

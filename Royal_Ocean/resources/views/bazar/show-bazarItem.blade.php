@@ -1,3 +1,5 @@
+<?php Use App\Models\BazarImage; ?>
+
 @extends('layout')
 
 @section('content')
@@ -36,6 +38,11 @@
 
 
 </x-karta>
+
+@foreach ($bazarItem->images as $image)
+    <img src="{{ $image->url() }}"/>
+@endforeach
+
 </div>
 {{--<x-karta class="mt-4 p-10 flex space-x-6">
     <a href="/bazar/{{$bazarItem->id}}/edit" class="hover:text-royalblue">
