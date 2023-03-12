@@ -32,7 +32,7 @@
             <a href="/"
                 ><img class="w-36" src="images/logo.png" alt=""
             /></a>
-            <ul class="flex align-middle content-center space-x-5">
+            <ul class="flex align-middle content-center space-x-7 text-lg font-bold">
                 <li>
                     <a href="/" class="hover:text-royalblue">Domů</a>
                 </li>
@@ -46,7 +46,7 @@
                     <a href="/blog" class="hover:text-royalblue">Blog</a>
                 </li>
             </ul>
-            <ul class="flex space-x-6 mr-6 text-lg">
+            <ul class="flex space-x-6 mr-6 text-base">
                 @auth
                 <li>
                     <span class="font-bold-uppercase"><strong>{{auth()->user()->name}}</strong>, vítej u nás!</span>
