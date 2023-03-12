@@ -56,10 +56,10 @@ return [
             'throw' => false,
         ],
 
-        'my_files' => [
+        /*'my_files' => [
             'driver' => 'local',
             'root'   => public_path() . '/'
-         ]
+         ]*/
 
     ],
 

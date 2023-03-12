@@ -14,4 +14,8 @@
 
 </div>
 
+<div class="mt-6 pd-4">
+    {{$produkty->links()}}
+</div>
+
 @endsection

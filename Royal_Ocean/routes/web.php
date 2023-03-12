@@ -57,6 +57,9 @@ Route::get('/bazar/manage', [BazarController::class, 'manage'])->middleware('aut
 //Bazar - 1 produkt - bazarItem - has to be under other bazar routes
 Route::get('/bazar/{bazarItem}', [BazarController::class, 'show']);
 
+//Bazar - fotky
+Route::get('/bazar-fotky/{bazarItem}', [BazarController::class, 'fotky'])->name('bazarItem.fotky');
+
 //Register form
 Route::get('/register', [UserController::class, 'register'])->middleware('guest');
 

@@ -9,7 +9,8 @@ class Bazar extends Model{
     public $table = 'bazar';
     use HasFactory;
 
-    protected $fillable = ['nazev', 'user_id', 'znacka', 'rok_vyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodni_fotka', 'images'];
+    // protected $fillable = ['nazev', 'user_id', 'znacka', 'rok_vyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodni_fotka'];
+    protected $guarded = [];
 
     public function scopeFilter($query, array $filters) {
        
@@ -27,10 +28,11 @@ class Bazar extends Model{
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
+    
     //Relationship with BazarImage
-    public function images()
+    public function fotky()
     {
-        return $this->hasMany('App\Models\BazarImage', 'bazar_id');
+        return $this->hasMany(BazarImage::class, 'bazar_id');
     }
 
 }

@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if(!Schema::hasTable('Bazarimages')) {
         Schema::create('Bazarimages', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
-            $table->unsignedBigInteger('bazar_id');
+            $table->foreignId('bazar_id')->constrained()->onDelete('cascade');
+            //$table->foreignIdFor(Bazar::class);
+            $table->string('fotka');
             $table->timestamps();
-        });
+        });}
     }
 
     /**

@@ -139,33 +139,27 @@
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
     </div>
-
+{{--
     <div class="form-group" style="padding-bottom: 15px">                            
         <label for="images" class="inline-block text-lg mb-2">Nahrát fotky <span class="text-gray-400">(Označte a nahrajte všechny vybrané fotky najednou)</span></label>
         <input class="border border-gray-200 rounded p-2 w-full"  type="file" name="images[]" multiple><br/>
     </div>
-/*
-        {{--<div class="mb-6">
+--}}
+{{--      <div class="mb-6">
         <label for="fotky" class="inline-block text-lg mb-2">
             Fotky
         </label>
         <input
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
-            name="fotky"
-        />
-        <input
-        type="file"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="fotky"
-        />
-        <input
-        type="file"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="fotky"
-        />
-    </div>--}}
-*/
+            name="fotky[]"
+            accept="image/"
+        multiple/>
+        @error('fotky')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+--}}
     <div class="mb-6">
         <label for="popisek"class="inline-block text-lg mb-2">Popis</label>
         <textarea class="border border-gray-200 rounded p-2 w-full"name="popisek"rows="10"

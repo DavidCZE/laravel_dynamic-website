@@ -9,7 +9,7 @@ class ProduktyController extends Controller
 {
     public function index() {
         return view('produkty.index-produkty', [
-            'produkty' => Produkty::all()
+            'produkty' => Produkty::latest()->paginate(4)
         ]);
     }
 

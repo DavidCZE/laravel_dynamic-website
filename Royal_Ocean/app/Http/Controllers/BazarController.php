@@ -40,54 +40,42 @@ class BazarController extends Controller
             'lokace' => 'required',
             
         ]);
-/*
-        $images = $request->file('images');
-    
-    foreach ($images as $image) {
-        $path = $image->store('public/images');
-        $filename = $image->getClientOriginalName();
-        
-        Bazar::create([
-            'filename' => $filename,
-            'path' => $path,
-        ]);
-        }
-*/
+
+        $formFields['user_id'] = auth()->id();
+
         if($request->hasFile('uvodni_fotka')) {
             $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
-/*
-        if($request->hasFile('images')) {
-        foreach ($request->file('images') as $imagefile) {
-            $imagefile->store('images','public');
-         }}
-*/
-        /*
-        $bazarItem = new Bazar;
-        $bazarItem->nazev = $request->nazev;
-        $bazarItem->popisek = $request->popisek;
-        $bazarItem->popisek = $request->popisek;
-        $bazarItem->popisek = $request->popisek;
-        $bazarItem->popisek = $request->popisek;
-        $bazarItem->popisek = $request->popisek;
-        $bazarItem->save();
-        */
-        /*
-        foreach ($request->file('images') as $imagefile) {
-            $image = new BazarImage;
-            $path = $imagefile->store('/images/resource', ['disk' =>   'my_files']);
-            $image->url = $path;
-            $image->bazar_id = $bazar->id;
-            $image->save();
+        if($request->has('fotky')) {
+            
         }
-        */
 
-        $formFields['user_id'] = auth()->id();
+        /*if($request->has('fotky')) {
+            $bazar = Bazar::with('fotky')->create($formFields);
+            $fotky = $bazar->fotky;
+            foreach($request->file('fotky')as $fotka) {
+                $fotkaName = $formFields['nazev'].'-fotka-'.time().rand(1,1000).'.'.$fotka->extension();
+                $fotka->move(public_path('bazar_fotky'),$fotkaName);
+                BazarImage::create([
+                    'bazar_id' => $bazar->id,
+                    'fotka' => $fotkaName]);
+            }
+        }*/
+
 
         Bazar::create($formFields);
 
         return redirect('/bazar')->with('message', 'Inzerát přidán');
     }
+
+    //Zobrazit fotky
+    public function fotky($id) {
+        $bazarItem = Bazar::find($id);
+        if(!$bazarItem) abort(404);
+        $fotky = $bazarItem->fotky;
+        return view('bazar.fotky-bazarItem', compact('bazarItem', 'fotky'));
+    }
+
 
     //Edit form
     public function edit(Bazar $bazarItem) {
