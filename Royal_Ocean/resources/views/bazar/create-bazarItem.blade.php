@@ -13,7 +13,24 @@
     @csrf
     <div class="mb-6">
         <label
-            for="rok-Vyroby"
+            for="cena"
+            class="inline-block text-lg mb-2"
+            >Cena</label
+        >
+        <input
+            type="text"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="cena"
+            value="{{old('cena')}}"
+        />
+        @error('cena')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+
+    <div class="mb-6">
+        <label
+            for="rok_vyroby"
             class="inline-block text-lg mb-2"
             >Rok výroby</label
         >
@@ -21,7 +38,7 @@
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
             name="rok_vyroby"
-            value="{{old('rok_Vyroby')}}"
+            value="{{old('rok_vyroby')}}"
         />
 
         @error('rok_vyroby')

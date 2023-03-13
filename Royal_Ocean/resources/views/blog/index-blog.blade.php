@@ -12,6 +12,10 @@
      <x-blogItem-karta :blogItem="$blogItem" />
     @endforeach
     
-    </div>
+</div>
+
+<div class="mt-6 pt-4">
+    {{$blog->links()}}
+</div>
     
 @endsection

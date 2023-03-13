@@ -14,18 +14,31 @@
     @method('PUT')
     <div class="mb-6">
         <label
-            for="rokVyroby"
+            for="cena"
+            class="inline-block text-lg mb-2"
+            >Cena</label
+        >
+        <input
+            type="text"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="cena"
+            value="{{$bazarItem->cena}}"
+        />
+
+    <div class="mb-6">
+        <label
+            for="rok_vyroby"
             class="inline-block text-lg mb-2"
             >Rok výroby</label
         >
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="rokVyroby"
+            name="rok_vyroby"
             value="{{$bazarItem->rok_vyroby}}"
         />
 
-        @error('rokVyroby')
+        @error('rok_vyroby')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
 
@@ -127,17 +140,17 @@
     </div>
 
     <div class="mb-6">
-        <label for="uvodniFotka" class="inline-block text-lg mb-2">
+        <label for="uvodni_fotka" class="inline-block text-lg mb-2">
             Úvodní fotka
         </label>
         <input
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
-            name="uvodniFotka"
+            name="uvodni_fotka"
         />
         <img class="w-48 mr-6 mb-6" src="{{$bazarItem->uvodni_fotka ? 
             asset('storage/' . $bazarItem->uvodni_fotka) : asset('/images/royal-ocean-low-resolution-logo-white-on-black-background.png')}}"/>
-        @error('uvodniFotka')
+        @error('uvodni_fotka')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
     </div>

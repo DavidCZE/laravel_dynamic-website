@@ -21,17 +21,35 @@ use App\Http\Controllers\ProduktyController;
 //Homepage
 Route::get('/', [HomeController::class, 'index']);
 
+
+
 //All blog articles
 Route::get('/blog', [BlogController::class, 'index']);
+
+//Form - Add Article
+Route::get('/blog/create', [BlogController::class, 'create']);
+
+//Uložení Article dat
+Route::post('/blog', [BlogController::class, 'store']);
 
 //Jednotlivé blogItems
 Route::get('/blog/{blogItem}', [BlogController::class, 'show']);
 
+
+
 //Všechny produkty
 Route::get('/produkty', [ProduktyController::class, 'index']);
 
+//Form - Create Product
+Route::get('/produkty/create', [ProduktyController::class, 'pcreate']);
+
+//Uložení Produkt dat
+Route::post('/produkty', [ProduktyController::class, 'pstore']);
+
 // Jednotlivé produkty
 Route::get('/produkty/{produkt}', [ProduktyController::class, 'show']);
+
+
 
 //Bazar
 Route::get('/bazar', [BazarController::class, 'index']);
@@ -59,6 +77,8 @@ Route::get('/bazar/{bazarItem}', [BazarController::class, 'show']);
 
 //Bazar - fotky
 Route::get('/bazar-fotky/{bazarItem}', [BazarController::class, 'fotky'])->name('bazarItem.fotky');
+
+
 
 //Register form
 Route::get('/register', [UserController::class, 'register'])->middleware('guest');

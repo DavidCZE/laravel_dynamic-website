@@ -18,4 +18,29 @@ class ProduktyController extends Controller
             'produkt' => $produkt
         ]);
     }
+
+    //Create form
+    public function pcreate() {
+        return view('produkty.create-produkt');
+    }
+
+    //Uložit produkt data
+    public function pstore(Request $request) {
+        $formFieldsProdukty = $request->validate([
+            'pnazev' => 'required',
+            'pcena' => 'required',
+            'prok_vyroby' => 'required',
+            'puvod' => 'required',
+            'ppopisek' => 'required',
+            
+        ]);
+
+        if($request->hasFile('puvodni_fotka')) {
+            $formFieldsProdukty['puvodni_fotka'] = $request->file('puvodni_fotka')->store('uvodniFotkaProdukty', 'public');
+        }
+
+        Produkty::create($formFieldsProdukty);
+
+        return redirect('/produkty')->with('message', 'Produkt přidán');
+    }
 }

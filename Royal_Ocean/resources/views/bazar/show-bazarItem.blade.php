@@ -12,6 +12,7 @@
         <img class="w-48 mr-6 mb-6" src="{{$bazarItem->uvodni_fotka ? 
         asset('storage/' . $bazarItem->uvodni_fotka) : asset('/images/royal-ocean-low-resolution-logo-white-on-black-background.png')}}"/>
         <h3 class="text-4xl mb-2 font-bold">{{$bazarItem->nazev}}</h3>
+        <div class="text-xl mb-4">{{$bazarItem["cena"]}}</div>
         <div class="text-xl mb-4">{{$bazarItem["znacka"]}}</div>
         <div class="text-xl mb-4">{{$bazarItem["rok_vyroby"]}}</div>
         <div class="text-xl mb-4">{{$bazarItem["lokace"]}}</div>

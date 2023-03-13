@@ -10,7 +10,7 @@ class BlogController extends Controller
     //All articles
     public function index() {
         return view('blog.index-blog', [
-            'blog' => Blog::all()
+            'blog' => Blog::latest()->paginate(6)
         ]);
     }
     //Separate articles
@@ -19,4 +19,23 @@ class BlogController extends Controller
             'blogItem' => $blogItem
         ]);
     }
+
+    //Create form
+    public function create() {
+        return view('blog.create-blog');
+    }
+
+    //Uložit Article data
+    public function store(Request $request) {
+        $formFieldsBlog = $request->validate([
+            'nazev' => 'required',
+            'obsah' => 'required',
+            
+        ]);
+        
+        Blog::create($formFieldsBlog);
+
+        return redirect('/blog')->with('message', 'Článek přidán');
+    }
+
 }

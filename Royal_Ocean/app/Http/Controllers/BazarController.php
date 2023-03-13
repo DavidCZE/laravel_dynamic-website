@@ -31,6 +31,7 @@ class BazarController extends Controller
     public function store(Request $request) {
         $formFields = $request->validate([
             'nazev' => 'required',
+            'cena' => 'required',
             'znacka' => 'required',
             'rok_vyroby' => 'required',
             'uvod' => 'required',
@@ -46,9 +47,9 @@ class BazarController extends Controller
         if($request->hasFile('uvodni_fotka')) {
             $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
-        if($request->has('fotky')) {
+        /*if($request->has('fotky')) {
             
-        }
+        }*/
 
         /*if($request->has('fotky')) {
             $bazar = Bazar::with('fotky')->create($formFields);
@@ -91,6 +92,7 @@ class BazarController extends Controller
 
         $formFields = $request->validate([
             'nazev' => 'required',
+            'cena' => 'required',
             'znacka' => 'required',
             'rok_vyroby' => 'required',
             'uvod' => 'required',
