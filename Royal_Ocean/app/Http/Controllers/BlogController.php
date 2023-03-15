@@ -38,4 +38,31 @@ class BlogController extends Controller
         return redirect('/blog')->with('message', 'Článek přidán');
     }
 
+    //Edit form
+    public function edit(Blog $blogItem) {
+        return view('blog.edit-blogItem', ['blogItem' => $blogItem]);
+    }
+
+    //Update
+    public function update(Request $request, Blog $blogItem) {
+        $formFields = $request->validate([
+            'nazev' => 'required',
+            'obsah' => 'required'
+        ]);
+
+        $blogItem->update($formFields);
+
+        return redirect('/blog/manage')->with('message', 'Článek upraven');
+    }
+
+    //Vymazat blogItem
+    public function delete(Blog $blogItem) {
+        $blogItem->delete();
+        return redirect('/blog/manage')->with('message', 'Článek byl smazán');
+    }
+
+    //Manage blogItems
+    public function manage() {
+        return view('blog.manage-blog', ['blog' => Blog::all()]);
+    }
 }

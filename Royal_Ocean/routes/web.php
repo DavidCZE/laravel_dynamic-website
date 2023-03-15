@@ -32,6 +32,18 @@ Route::get('/blog/create', [BlogController::class, 'create']);
 //Uložení Article dat
 Route::post('/blog', [BlogController::class, 'store']);
 
+//Úprava blogItem form
+Route::get('/blog/{blogItem}/edit', [BlogController::class, 'edit']);
+
+//Upravit blogItem
+Route::put('/blog/{blogItem}', [BlogController::class, 'update']);
+
+//Vymazat blogItem
+Route::delete('/blog/{blogItem}', [BlogController::class, 'delete']);
+
+//Manage Articles
+Route::get('/blog/manage', [BlogController::class, 'manage']);
+
 //Jednotlivé blogItems
 Route::get('/blog/{blogItem}', [BlogController::class, 'show']);
 
