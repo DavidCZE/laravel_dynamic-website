@@ -27,22 +27,22 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/blog', [BlogController::class, 'index']);
 
 //Form - Add Article
-Route::get('/blog/create', [BlogController::class, 'create']);
+Route::get('/blog/create', [BlogController::class, 'create'])->middleware('role:admin');
 
 //Uložení Article dat
-Route::post('/blog', [BlogController::class, 'store']);
+Route::post('/blog', [BlogController::class, 'store'])->middleware('role:admin');
 
 //Úprava blogItem form
-Route::get('/blog/{blogItem}/edit', [BlogController::class, 'edit']);
+Route::get('/blog/{blogItem}/edit', [BlogController::class, 'edit'])->middleware('role:admin');
 
 //Upravit blogItem
-Route::put('/blog/{blogItem}', [BlogController::class, 'update']);
+Route::put('/blog/{blogItem}', [BlogController::class, 'update'])->middleware('role:admin');
 
 //Vymazat blogItem
-Route::delete('/blog/{blogItem}', [BlogController::class, 'delete']);
+Route::delete('/blog/{blogItem}', [BlogController::class, 'delete'])->middleware('role:admin');
 
 //Manage Articles
-Route::get('/blog/manage', [BlogController::class, 'manage']);
+Route::get('/blog/manage', [BlogController::class, 'manage'])->middleware('role:admin');
 
 //Jednotlivé blogItems
 Route::get('/blog/{blogItem}', [BlogController::class, 'show']);
@@ -53,10 +53,10 @@ Route::get('/blog/{blogItem}', [BlogController::class, 'show']);
 Route::get('/produkty', [ProduktyController::class, 'index']);
 
 //Form - Create Product
-Route::get('/produkty/create', [ProduktyController::class, 'pcreate']);
+Route::get('/produkty/create', [ProduktyController::class, 'pcreate'])->middleware('role:admin');
 
 //Uložení Produkt dat
-Route::post('/produkty', [ProduktyController::class, 'pstore']);
+Route::post('/produkty', [ProduktyController::class, 'pstore'])->middleware('role:admin');
 
 // Jednotlivé produkty
 Route::get('/produkty/{produkt}', [ProduktyController::class, 'show']);

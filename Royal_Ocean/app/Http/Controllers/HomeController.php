@@ -10,8 +10,13 @@ class HomeController extends Controller
 {
     //zobrazit home
     public function index() {
-
-        Permission::create(['name'=>'write post']);
+        //Role::create(['name'=>'admin']);
+        //Permission::create(['name'=>'everything']);
+        //$role = Role::findById(1);
+        //$permission = Permission::findById(1);
+        //$role->givePermissionTo($permission);
+        //auth()->user()->givePermissionTo('everything');
+        //return auth()->user()->getRoleNames();
         return view('home');
     }
 }
