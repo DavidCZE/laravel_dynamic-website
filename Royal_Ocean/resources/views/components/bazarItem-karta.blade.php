@@ -8,23 +8,17 @@
             alt=""
         />
         <div>
-            <h3 class="text-2xl">
+            <h3 class="text-3xl">
                 <a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem->nazev}}</a>
             </h3>
-            <div class="text-lg mt-4">
-                <i class="fa-solid"></i><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem['cena']}}</a>
+            <div class="text-lg mt-2">
+                <i class="fas fa-tag"></i><a href="/bazar/{{$bazarItem['id']}}"> {{$bazarItem['cena']}} Kč</a>
             </div>
-            <div class="text-lg mt-4">
-                <i class="fa-solid"></i><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem['znacka']}}</a>
-            </div>
-            <div class="text-lg mt-4">
+            <div class="text-lg mt-2">
                 <i class="fa-solid fa-map-marker"></i><a href="/bazar/{{$bazarItem['id']}}"> {{$bazarItem['lokace']}}</a>
             </div>
-            <div class="text-lg mt-4">
-                <i class="fa-solid"></i><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem['rok_vyroby']}}</a>
-            </div>
             <div>
-                <p class="mt-5 text-xl"><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem->uvod}}</a></p>
+                <p class="mt-3 text-xl"><a href="/bazar/{{$bazarItem['id']}}">{{$bazarItem->uvod}}</a></p>
             </div>
         </div>
     </div>

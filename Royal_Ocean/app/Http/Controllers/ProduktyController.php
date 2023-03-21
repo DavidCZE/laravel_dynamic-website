@@ -20,23 +20,23 @@ class ProduktyController extends Controller
     }
 
     //Create form
-    public function pcreate() {
+    public function create() {
         return view('produkty.create-produkt');
     }
 
     //Uložit produkt data
-    public function pstore(Request $request) {
+    public function store(Request $request) {
         $formFieldsProdukty = $request->validate([
-            'pnazev' => 'required',
-            'pcena' => 'required',
-            'prok_vyroby' => 'required',
-            'puvod' => 'required',
-            'ppopisek' => 'required',
+            'nazev' => 'required',
+            'cena' => 'required',
+            'rok_vyroby' => 'required',
+            'uvod' => 'required',
+            'popisek' => 'required',
             
         ]);
 
-        if($request->hasFile('puvodni_fotka')) {
-            $formFieldsProdukty['puvodni_fotka'] = $request->file('puvodni_fotka')->store('uvodniFotkaProdukty', 'public');
+        if($request->hasFile('uvodni_fotka')) {
+            $formFieldsProdukty['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaProdukty', 'public');
         }
 
         Produkty::create($formFieldsProdukty);

@@ -47,6 +47,37 @@ class BazarController extends Controller
         if($request->hasFile('uvodni_fotka')) {
             $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
+        
+        if($request->hasFile('fotka1')) {
+            $formFields['fotka1'] = $request->file('fotka1')->store('Fotka1Bazar', 'public');
+        }
+        if($request->hasFile('fotka2')) {
+            $formFields['fotka2'] = $request->file('fotka2')->store('Fotka2Bazar', 'public');
+        }
+        if($request->hasFile('fotka3')) {
+            $formFields['fotka3'] = $request->file('fotka3')->store('Fotka3Bazar', 'public');
+        }
+        if($request->hasFile('fotka4')) {
+            $formFields['fotka4'] = $request->file('fotka4')->store('Fotka4Bazar', 'public');
+        }
+        if($request->hasFile('fotka5')) {
+            $formFields['fotka5'] = $request->file('fotka5')->store('Fotka5Bazar', 'public');
+        }
+        if($request->hasFile('fotka6')) {
+            $formFields['fotka6'] = $request->file('fotka6')->store('Fotka6Bazar', 'public');
+        }
+        if($request->hasFile('fotka7')) {
+            $formFields['fotka7'] = $request->file('fotka7')->store('Fotka7Bazar', 'public');
+        }
+        if($request->hasFile('fotka8')) {
+            $formFields['fotka8'] = $request->file('fotka8')->store('Fotka8Bazar', 'public');
+        }
+        if($request->hasFile('fotka9')) {
+            $formFields['fotka9'] = $request->file('fotka9')->store('Fotka9Bazar', 'public');
+        }
+        if($request->hasFile('fotka10')) {
+            $formFields['fotka10'] = $request->file('fotka10')->store('Fotka10Bazar', 'public');
+        }
         /*if($request->has('fotky')) {
             
         }*/
@@ -104,6 +135,37 @@ class BazarController extends Controller
 
         if($request->hasFile('uvodni_fotka')) {
             $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
+        }
+
+        if($request->hasFile('fotka1')) {
+            $formFields['fotka1'] = $request->file('fotka1')->store('Fotka1Bazar', 'public');
+        }
+        if($request->hasFile('fotka2')) {
+            $formFields['fotka2'] = $request->file('fotka2')->store('Fotka2Bazar', 'public');
+        }
+        if($request->hasFile('fotka3')) {
+            $formFields['fotka3'] = $request->file('fotka3')->store('Fotka3Bazar', 'public');
+        }
+        if($request->hasFile('fotka4')) {
+            $formFields['fotka4'] = $request->file('fotka4')->store('Fotka4Bazar', 'public');
+        }
+        if($request->hasFile('fotka5')) {
+            $formFields['fotka5'] = $request->file('fotka5')->store('Fotka5Bazar', 'public');
+        }
+        if($request->hasFile('fotka6')) {
+            $formFields['fotka6'] = $request->file('fotka6')->store('Fotka6Bazar', 'public');
+        }
+        if($request->hasFile('fotka7')) {
+            $formFields['fotka7'] = $request->file('fotka7')->store('Fotka7Bazar', 'public');
+        }
+        if($request->hasFile('fotka8')) {
+            $formFields['fotka8'] = $request->file('fotka8')->store('Fotka8Bazar', 'public');
+        }
+        if($request->hasFile('fotka9')) {
+            $formFields['fotka9'] = $request->file('fotka9')->store('Fotka9Bazar', 'public');
+        }
+        if($request->hasFile('fotka10')) {
+            $formFields['fotka10'] = $request->file('fotka10')->store('Fotka10Bazar', 'public');
         }
 
         $bazarItem->update($formFields);

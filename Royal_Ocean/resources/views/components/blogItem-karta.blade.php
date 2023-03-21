@@ -1,5 +1,7 @@
 @props(['blogItem'])
-
+@php
+use Illuminate\Support\Str;
+@endphp
 <x-karta>
     <div class="flex">
        {{--<img
@@ -11,6 +13,9 @@
             <h3 class="text-2xl">
                 <a href="/blog/{{$blogItem['id']}}">{{$blogItem->nazev}}</a>
             </h3>
+            <p class="mt-2 text-sm">
+                <a href="/blog/{{$blogItem['id']}}">{{Str::limit($blogItem->obsah, 150)}}</a>
+            </p>
             {{--<div class="text-lg mt-4">
                 <i class="fa-solid"></i><a href="/produkty/{{$produkt['id']}}">{{$produkt['rok_vyroby']}}</a>
             </div>

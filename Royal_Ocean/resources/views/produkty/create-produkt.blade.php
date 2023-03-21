@@ -9,49 +9,49 @@
     </header>
 
     <form role="form" method="POST" action="/produkty" enctype="multipart/form-data">
-        {{ csrf_field() }}
+        @csrf
         <div class="mb-6">
             <label
-                for="pcena"
+                for="cena"
                 class="inline-block text-lg mb-2"
                 >Cena</label>
             <input
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
-                name="pcena"
-                value="{{old('pcena')}}"/>
-            @error('pcena')
+                name="cena"
+                value="{{old('cena')}}"/>
+            @error('cena')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
 
 
         <div class="mb-6">
-            <label for="pnazev" class="inline-block text-lg mb-2"
+            <label for="nazev" class="inline-block text-lg mb-2"
                 >Název</label>
             <input
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
-                name="pnazev"
+                name="nazev"
                 placeholder="Příklad: Jachtařské rukavice"
-                value="{{old('pnazev')}}"/>
+                value="{{old('nazev')}}"/>
 
-            @error('pnazev')
+            @error('nazev')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
 
         </div>
 
         <div class="mb-6">
-            <label for="puvodni_fotka" class="inline-block text-lg mb-2">
+            <label for="uvodni_fotka" class="inline-block text-lg mb-2">
                 Úvodní fotka
             </label>
             <input
                 type="file"
                 class="border border-gray-200 rounded p-2 w-full"
-                name="puvodni_fotka"
-                value="{{old('puvodni_fotka')}}"/>
-            @error('puvodni_fotka')
+                name="uvodni_fotka"
+                value="{{old('uvodni_fotka')}}"/>
+            @error('uvodni_fotka')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
@@ -78,19 +78,19 @@
         </div>
         --}}
         <div class="mb-6">
-            <label for="ppopisek"class="inline-block text-lg mb-2">Popis</label>
-            <textarea class="border border-gray-200 rounded p-2 w-full"name="ppopisek"rows="10"
-                placeholder="Napište všechny relevantní informace">{{old('ppopisek')}}</textarea>
-            @error('ppopisek')
+            <label for="popisek"class="inline-block text-lg mb-2">Popis</label>
+            <textarea class="border border-gray-200 rounded p-2 w-full"name="popisek"rows="10"
+                placeholder="Napište všechny relevantní informace">{{old('popisek')}}</textarea>
+            @error('popisek')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
 
         <div class="mb-6">
-            <label for="puvod"class="inline-block text-lg mb-2">Úvodní věta</label>
-            <textarea class="border border-gray-200 rounded p-2 w-full"name="puvod"rows="2"
-                placeholder="Popište produkt jednou nebo dvěma větami (bude se zobrazovat v přehledu produktů)">{{old('puvod')}}</textarea>
-            @error('puvod')
+            <label for="uvod"class="inline-block text-lg mb-2">Úvodní věta</label>
+            <textarea class="border border-gray-200 rounded p-2 w-full"name="uvod"rows="2"
+                placeholder="Popište produkt jednou nebo dvěma větami (bude se zobrazovat v přehledu produktů)">{{old('uvod')}}</textarea>
+            @error('uvod')
                 <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>

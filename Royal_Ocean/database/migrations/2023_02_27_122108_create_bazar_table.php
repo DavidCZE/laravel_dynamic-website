@@ -17,7 +17,16 @@ return new class extends Migration
             $table->string('nazev');
             $table->string('cena');
             $table->string('uvodni_fotka')->nullable();
-            $table->string('fotky')->nullable();
+            $table->string('fotka1')->nullable();
+            $table->string('fotka2')->nullable();
+            $table->string('fotka3')->nullable();
+            $table->string('fotka4')->nullable();
+            $table->string('fotka5')->nullable();
+            $table->string('fotka6')->nullable();
+            $table->string('fotka7')->nullable();
+            $table->string('fotka8')->nullable();
+            $table->string('fotka9')->nullable();
+            $table->string('fotka10')->nullable();
             $table->string('znacka');
             $table->string('rok_vyroby');
             $table->string('uvod');

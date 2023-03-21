@@ -15,7 +15,7 @@
         <label
             for="cena"
             class="inline-block text-lg mb-2"
-            >Cena</label
+            >Cena <span class="text-gray-500"> (v Kč)</span></label
         >
         <input
             type="text"
@@ -153,6 +153,120 @@
             value="{{old('uvodni_fotka')}}"
         />
         @error('uvodni_fotka')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+
+    <div class="mb-2">
+        <label for="fotka1" class="inline-block text-lg mb-2">
+            Fotky<span class="text-gray-500"> (nemusíte zaplnit všechna pole)</span>
+        </label>
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka1"
+            value="{{old('fotka1')}}"
+        />
+        @error('fotka1')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka2"
+            value="{{old('fotka2')}}"
+        />
+        @error('fotka2')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka3"
+            value="{{old('fotka3')}}"
+        />
+        @error('fotka3')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka4"
+            value="{{old('fotka4')}}"
+        />
+        @error('fotka4')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka5"
+            value="{{old('fotka5')}}"
+        />
+        @error('fotka5')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka6"
+            value="{{old('fotka6')}}"
+        />
+        @error('fotka6')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka7"
+            value="{{old('fotka7')}}"
+        />
+        @error('fotka7')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka8"
+            value="{{old('fotka8')}}"
+        />
+        @error('fotka8')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka9"
+            value="{{old('fotka9')}}"
+        />
+        @error('fotka9')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+    <div class="mb-2">
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="fotka10"
+            value="{{old('fotka10')}}"
+        />
+        @error('fotka10')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
     </div>

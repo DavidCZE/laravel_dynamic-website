@@ -53,10 +53,10 @@ Route::get('/blog/{blogItem}', [BlogController::class, 'show']);
 Route::get('/produkty', [ProduktyController::class, 'index']);
 
 //Form - Create Product
-Route::get('/produkty/create', [ProduktyController::class, 'pcreate'])->middleware('role:admin');
+Route::get('/produkty/create', [ProduktyController::class, 'create'])->middleware('role:admin');
 
 //Uložení Produkt dat
-Route::post('/produkty', [ProduktyController::class, 'pstore'])->middleware('role:admin');
+Route::post('/produkty', [ProduktyController::class, 'store'])->middleware('role:admin');
 
 // Jednotlivé produkty
 Route::get('/produkty/{produkt}', [ProduktyController::class, 'show']);

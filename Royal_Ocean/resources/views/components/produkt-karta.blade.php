@@ -9,16 +9,16 @@
         />
         <div>
             <h3 class="text-2xl">
-                <a href="/produkty/{{$produkt['id']}}">{{$produkt->pnazev}}</a>
+                <a href="/produkty/{{$produkt['id']}}">{{$produkt->nazev}}</a>
             </h3>
             <h3 class="text-2xl">
-                <a href="/produkty/{{$produkt['id']}}">{{$produkt->pcena}}</a>
+                <a href="/produkty/{{$produkt['id']}}">{{$produkt->cena}}</a>
             </h3>
             <div class="text-lg mt-4">
-                <i class="fa-solid"></i><a href="/produkty/{{$produkt['id']}}">{{$produkt['prok_vyroby']}}</a>
+                <i class="fa-solid"></i><a href="/produkty/{{$produkt['id']}}">{{$produkt['rok_vyroby']}}</a>
             </div>
             <div>
-                <p class="mt-5 text-xl"><a href="/produkty/{{$produkt['id']}}">{{$produkt->puvod}}</a></p>
+                <p class="mt-5 text-xl"><a href="/produkty/{{$produkt['id']}}">{{$produkt->uvod}}</a></p>
             </div>
         </div>
     </div>

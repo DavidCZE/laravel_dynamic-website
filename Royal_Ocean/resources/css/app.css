@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav {
-    @apply hover:text-royalblue;
+.photo {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+.glide {
+    position: relative;
+  }
+  
+  .glide__slide {
+    list-style: none;
+  }
+  
+  .glide__slide img {
+    max-width: 100%;
+  }
+  
