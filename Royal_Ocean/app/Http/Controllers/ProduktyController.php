@@ -43,4 +43,9 @@ class ProduktyController extends Controller
 
         return redirect('/produkty')->with('message', 'Produkt přidán');
     }
+
+    //Manage produkty
+    public function manage() {
+        return view('produkty.manage-produkty', ['produkty' => Produkty::all()]);
+    }
 }

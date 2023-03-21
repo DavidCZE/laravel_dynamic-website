@@ -43,7 +43,7 @@
 
 
 </x-karta>
-@php
+{{--@php
 $images = [];
 
 if (file_exists($bazarItem->fotka1)) {
@@ -62,7 +62,7 @@ if (file_exists($bazarItem->fotka1)) {
       </ul>
     </div>
   </div>
-  
+  --}}
 
 <div class="flex flex-wrap -mx-4">
     @if($bazarItem->fotka1)

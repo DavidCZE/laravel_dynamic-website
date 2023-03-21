@@ -4,5 +4,5 @@
 @include('partials.hero')
 
 Hello, World!
-    
+
 @endsection

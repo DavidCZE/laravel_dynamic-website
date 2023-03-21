@@ -58,6 +58,9 @@ Route::get('/produkty/create', [ProduktyController::class, 'create'])->middlewar
 //Uložení Produkt dat
 Route::post('/produkty', [ProduktyController::class, 'store'])->middleware('role:admin');
 
+//Manage Articles
+Route::get('/produkty/manage', [ProduktyController::class, 'manage'])->middleware('role:admin');
+
 // Jednotlivé produkty
 Route::get('/produkty/{produkt}', [ProduktyController::class, 'show']);
 
