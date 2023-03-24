@@ -9,10 +9,12 @@ module.exports = {
     colors: {
       'royalblue': '#0023FF',
     },
-    extend: {},
-    fontFamily: {
-      'montserrat': ["Montserrat Subrayada", 'sans-serif'],
-    }
+    extend: {
+      fontFamily: {
+        montserrat: "'Montserrat Subrayada', serif",
+      }
+    },
+    
   },
   plugins: [],
 }

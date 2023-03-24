@@ -12,7 +12,7 @@ class="relative h-80 flex flex-col justify-center align-center text-center space
     </h1>
     <div>
         <i class="text-black py-2 px-4 mt-2">
-        Lorem ipsum</i
+        Kvalitní české jachty</i
         >
     </div>
 </div>
