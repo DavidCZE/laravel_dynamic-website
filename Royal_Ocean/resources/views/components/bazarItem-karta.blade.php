@@ -3,9 +3,8 @@
 <x-karta>
     <div class="flex ">
         <img
-            class="hidden w-48 mr-6 md:block object-contain"
+            class="hidden w-48 mr-6 md:block object-contain transition duration-300 ease-in-out hover:scale-110"
             src="{{$bazarItem->uvodni_fotka ? asset('storage/' . $bazarItem->uvodni_fotka) : asset('/images/royal-ocean-low-resolution-logo-white-on-black-background.png')}}"
-            alt=""
         />
         <div>
             <h3 class="text-3xl">

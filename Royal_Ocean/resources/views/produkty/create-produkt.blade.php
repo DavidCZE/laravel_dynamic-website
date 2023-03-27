@@ -9,7 +9,7 @@
     </header>
 
     <form role="form" method="POST" action="/produkty" enctype="multipart/form-data">
-        {{ csrf_field() }}
+        @csrf
         <div class="mb-6">
             <label
                 for="cena"

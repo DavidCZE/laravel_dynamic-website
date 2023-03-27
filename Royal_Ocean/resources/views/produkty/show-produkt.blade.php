@@ -25,6 +25,9 @@
             <div class="text-lg space-y-6">
                 <p>{{$produkt->popisek}}</p>
             </div>
+            <h4 class="text-1xl font-bold mt-10">
+                Máte zájem?
+            </h4>
             <a
             href="mailto:sales@royalocean.cz"
             class="block bg-royalblue text-white mt-6 py-2 rounded-xl hover:opacity-80"
