@@ -58,7 +58,10 @@ Route::get('/produkty/create', [ProduktyController::class, 'create'])->middlewar
 //Uložení Produkt dat
 Route::post('/produkty', [ProduktyController::class, 'store'])->middleware('role:admin');
 
-//Manage Articles
+//Vymazat bazarItem
+Route::delete('/produkty/{produkt}', [ProduktyController::class, 'delete'])->middleware('role:admin');
+
+//Manage Produkty
 Route::get('/produkty/manage', [ProduktyController::class, 'manage'])->middleware('role:admin');
 
 // Jednotlivé produkty

@@ -44,6 +44,13 @@ class ProduktyController extends Controller
         return redirect('/produkty')->with('message', 'Produkt přidán');
     }
 
+    //Vymazat produkt
+    public function delete(Produkty $produkt) {
+        
+        $produkt->delete();
+        return redirect('/produkty/manage')->with('message', 'Produkt byl smazán');
+    }
+
     //Manage produkty
     public function manage() {
         return view('produkty.manage-produkty', ['produkty' => Produkty::all()]);
