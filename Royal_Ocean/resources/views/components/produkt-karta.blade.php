@@ -8,17 +8,14 @@
             alt=""
         />
         <div>
-            <h3 class="text-2xl">
+            <h3 class="text-3xl">
                 <a href="/produkty/{{$produkt['id']}}">{{$produkt->nazev}}</a>
             </h3>
-            <h3 class="text-2xl">
-                <a href="/produkty/{{$produkt['id']}}">{{$produkt->cena}}</a>
-            </h3>
-            <div class="text-lg mt-4">
-                <i class="fa-solid"></i><a href="/produkty/{{$produkt['id']}}">{{$produkt['rok_vyroby']}}</a>
+            <div class="text-lg mt-2">
+                <i class="fas fa-tag"></i> <a href="/produkty/{{$produkt['id']}}">{{$produkt->cena}} Kč</a> 
             </div>
             <div>
-                <p class="mt-5 text-xl"><a href="/produkty/{{$produkt['id']}}">{{$produkt->uvod}}</a></p>
+                <p class="mt-3 text-xl"><a href="/produkty/{{$produkt['id']}}">{{$produkt->uvod}}</a></p>
             </div>
         </div>
     </div>

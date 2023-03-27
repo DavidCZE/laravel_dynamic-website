@@ -9,12 +9,12 @@
     </header>
 
     <form role="form" method="POST" action="/produkty" enctype="multipart/form-data">
-        @csrf
+        {{ csrf_field() }}
         <div class="mb-6">
             <label
                 for="cena"
                 class="inline-block text-lg mb-2"
-                >Cena</label>
+                >Cena <span class="text-gray-500"> (v Kč)</span></label>
             <input
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
@@ -41,7 +41,7 @@
             @enderror
 
         </div>
-
+{{--
         <div class="mb-6">
             <label for="uvodni_fotka" class="inline-block text-lg mb-2">
                 Úvodní fotka
@@ -55,6 +55,7 @@
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
+        --}}
         {{--
         <div class="form-group" style="padding-bottom: 15px">                            
             <label for="images" class="inline-block text-lg mb-2">Nahrát fotky <span class="text-gray-400">(Označte a nahrajte všechny vybrané fotky najednou)</span></label>

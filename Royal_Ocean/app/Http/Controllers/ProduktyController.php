@@ -26,7 +26,7 @@ class ProduktyController extends Controller
 
     //Uložit produkt data
     public function store(Request $request) {
-        $formFieldsProdukty = $request->validate([
+        $formFields = $request->validate([
             'nazev' => 'required',
             'cena' => 'required',
             'rok_vyroby' => 'required',
@@ -36,10 +36,10 @@ class ProduktyController extends Controller
         ]);
 
         if($request->hasFile('uvodni_fotka')) {
-            $formFieldsProdukty['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaProdukty', 'public');
+            $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaProdukty', 'public');
         }
 
-        Produkty::create($formFieldsProdukty);
+        Produkty::create($formFields);
 
         return redirect('/produkty')->with('message', 'Produkt přidán');
     }
