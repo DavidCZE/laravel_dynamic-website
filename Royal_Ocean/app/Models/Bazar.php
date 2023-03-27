@@ -4,13 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Image;
 
 class Bazar extends Model{
     public $table = 'bazar';
     use HasFactory;
 
-    // protected $fillable = ['nazev', 'user_id', 'znacka', 'rok_vyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodni_fotka'];
-    protected $guarded = [];
+    protected $fillable = ['nazev', 'cena', 'user_id', 'znacka', 'rok_vyroby', 'uvod', 'popisek', 'email', 'cislo', 'lokace', 'uvodni_fotka',];
+    // protected $guarded = [];
+
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
 
     public function scopeFilter($query, array $filters) {
        
@@ -29,10 +34,4 @@ class Bazar extends Model{
         return $this->belongsTo(User::class, 'user_id');
     }
     
-    //Relationship with BazarImage
-    public function fotky()
-    {
-        return $this->hasMany(BazarImage::class, 'bazar_id');
-    }
-
 }

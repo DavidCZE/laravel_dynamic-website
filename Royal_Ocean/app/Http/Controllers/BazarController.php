@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bazar;
+use App\Models\Image;
 use App\Models\BazarImage;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,10 @@ class BazarController extends Controller
 
     //Jednotlivé bazarItem
     public function show(Bazar $bazarItem) {
+        $images = $bazarItem->images;
         return view('bazar.show-bazarItem', [
             'bazarItem' => $bazarItem
-        ]);
+        ], compact('bazarItem', 'images'));
     }
 
     //Create form
@@ -39,7 +41,6 @@ class BazarController extends Controller
             'email' => ['required', 'email'],
             'cislo' => 'required',
             'lokace' => 'required',
-            
         ]);
 
         $formFields['user_id'] = auth()->id();
@@ -47,7 +48,33 @@ class BazarController extends Controller
         if($request->hasFile('uvodni_fotka')) {
             $formFields['uvodni_fotka'] = $request->file('uvodni_fotka')->store('uvodniFotkaBazar', 'public');
         }
+
+        $bazarItem = Bazar::create($formFields);
+/*
+        if($request->hasFile("images")){
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('images', 'public');
         
+                $bazarItem->images()->create([
+                    'path' => $path,
+                ]);
+            }
+        }
+*/
+        
+        if($request->hasFile("images")){
+            $files=$request->file("images");
+            foreach($files as $file){
+                $imageName=time().'_'.$file->getClientOriginalName();
+                $file->move(\public_path("/images"),$imageName);
+                Image::create([
+                    'bazar_id' => $bazarItem->id,
+                    'image' => $imageName
+                ]);
+            }
+        }
+
+/*
         if($request->hasFile('fotka1')) {
             $formFields['fotka1'] = $request->file('fotka1')->store('Fotka1Bazar', 'public');
         }
@@ -78,6 +105,7 @@ class BazarController extends Controller
         if($request->hasFile('fotka10')) {
             $formFields['fotka10'] = $request->file('fotka10')->store('Fotka10Bazar', 'public');
         }
+*/
         /*if($request->has('fotky')) {
             
         }*/
@@ -94,12 +122,9 @@ class BazarController extends Controller
             }
         }*/
 
-
-        Bazar::create($formFields);
-
         return redirect('/bazar')->with('message', 'Inzerát přidán');
     }
-
+/*
     //Zobrazit fotky
     public function fotky($id) {
         $bazarItem = Bazar::find($id);
@@ -107,7 +132,7 @@ class BazarController extends Controller
         $fotky = $bazarItem->fotky;
         return view('bazar.fotky-bazarItem', compact('bazarItem', 'fotky'));
     }
-
+*/
 
     //Edit form
     public function edit(Bazar $bazarItem) {

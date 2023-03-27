@@ -16,6 +16,7 @@ class HomeController extends Controller
         //$permission = Permission::findById(1);
         //$role->givePermissionTo($permission);
         //auth()->user()->givePermissionTo('everything');
+        //auth()->user()->assignRole('admin');
         //return auth()->user()->getRoleNames();
         return view('home');
     }

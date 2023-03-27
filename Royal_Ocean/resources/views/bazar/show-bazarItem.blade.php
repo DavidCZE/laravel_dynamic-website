@@ -43,6 +43,13 @@
 
 
 </x-karta>
+
+<div>
+    @foreach ($images as $image)
+        <img src="{{ asset('storage/' . $image->path) }}" alt="">
+    @endforeach
+</div>
+
 {{--@php
 $images = [];
 
