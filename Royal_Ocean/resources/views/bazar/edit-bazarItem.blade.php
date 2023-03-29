@@ -148,6 +148,7 @@
         <input
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
+            accept="image/"
             name="uvodni_fotka"
         />
         <img class="w-48 mr-6 mb-6" src="{{$bazarItem->uvodni_fotka ? 

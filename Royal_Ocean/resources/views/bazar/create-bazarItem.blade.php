@@ -152,6 +152,7 @@
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
             name="uvodni_fotka"
+            accept="image/"
             value="{{old('uvodni_fotka')}}"
         />
         @error('uvodni_fotka')

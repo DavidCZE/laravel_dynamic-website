@@ -69,6 +69,7 @@
         <input
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
+            accept="image/*"
             name="uvodni_fotka"
         />
         <img class="w-48 mr-6 mb-6" src="{{$produkt->uvodni_fotka ? 
@@ -87,7 +88,7 @@
             id="input-file-now-custom-3"
             class="border border-gray-200 rounded p-2 w-full"
             name="pimages[]"
-            accept="image/" multiple/>
+            accept="image/*" multiple/>
         @unless(count($produkt->pimages) == 0)
             @foreach($produkt->pimages as $pimage)
                 <img class="w-48 mr-6 mb-6" src="{{ asset('images/produkty/'.$pimage->pimage) }}">

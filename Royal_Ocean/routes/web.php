@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BazarController;
@@ -18,33 +19,32 @@ use App\Http\Controllers\ProduktyController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//Homepage
+//Domovská stránka
 Route::get('/', [HomeController::class, 'index']);
 
 
-
-//All blog articles
+//Všechny články
 Route::get('/blog', [BlogController::class, 'index']);
 
-//Form - Add Article
+//Formulář - přidat článek
 Route::get('/blog/create', [BlogController::class, 'create'])->middleware('role:admin');
 
-//Uložení Article dat
+//Uložení článek dat
 Route::post('/blog', [BlogController::class, 'store'])->middleware('role:admin');
 
-//Úprava blogItem form
+//Úprava článku formulář
 Route::get('/blog/{blogItem}/edit', [BlogController::class, 'edit'])->middleware('role:admin');
 
-//Upravit blogItem
+//Upravit článek
 Route::put('/blog/{blogItem}', [BlogController::class, 'update'])->middleware('role:admin');
 
-//Vymazat blogItem
+//Vymazat článek
 Route::delete('/blog/{blogItem}', [BlogController::class, 'delete'])->middleware('role:admin');
 
-//Manage Articles
+//Upravit články - přehled
 Route::get('/blog/manage', [BlogController::class, 'manage'])->middleware('role:admin');
 
-//Jednotlivé blogItems
+//Jednotlivé články
 Route::get('/blog/{blogItem}', [BlogController::class, 'show']);
 
 
