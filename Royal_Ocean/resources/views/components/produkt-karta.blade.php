@@ -4,8 +4,7 @@
     <div class="flex">
         <img
             class="hidden w-48 mr-6 md:block object-contain transition duration-300 ease-in-out hover:scale-110"
-            src="{{asset('images/royal-ocean-low-resolution-logo-black-on-white-background.png')}}"
-            alt=""
+            src="{{$produkt->uvodni_fotka ? asset('storage/' . $produkt->uvodni_fotka) : asset('/images/royal-ocean-low-resolution-logo-black-on-white-background.png')}}"
         />
         <div>
             <h3 class="text-3xl">

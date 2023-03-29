@@ -12,37 +12,6 @@
 <form method="POST" action="/bazar/{{$bazarItem->id}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    <div class="mb-6">
-        <label
-            for="cena"
-            class="inline-block text-lg mb-2"
-            >Cena</label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="cena"
-            value="{{$bazarItem->cena}}"
-        />
-
-    <div class="mb-6">
-        <label
-            for="rok_vyroby"
-            class="inline-block text-lg mb-2"
-            >Rok výroby</label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="rok_vyroby"
-            value="{{$bazarItem->rok_vyroby}}"
-        />
-
-        @error('rok_vyroby')
-            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
-
-    </div>
 
     <div class="mb-6">
         <label for="nazev" class="inline-block text-lg mb-2"
@@ -77,6 +46,39 @@
         />
 
         @error('znacka')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
+
+    </div>
+
+    <div class="mb-6">
+        <label
+            for="cena"
+            class="inline-block text-lg mb-2"
+            >Cena</label
+        >
+        <input
+            type="text"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="cena"
+            placeholder="Příklad: 12 399"
+            value="{{$bazarItem->cena}}"
+        />
+
+    <div class="mb-6">
+        <label
+            for="rok_vyroby"
+            class="inline-block text-lg mb-2"
+            >Rok výroby</label
+        >
+        <input
+            type="text"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="rok_vyroby"
+            value="{{$bazarItem->rok_vyroby}}"
+        />
+
+        @error('rok_vyroby')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
 
@@ -155,26 +157,25 @@
     @enderror
     </div>
 
-    {{--<div class="mb-6">
-        <label for="fotky" class="inline-block text-lg mb-2">
+    <div class="mb-6">
+        <label for="images" class="inline-block text-lg mb-2">
             Fotky
         </label>
         <input
             type="file"
+            id="input-file-now-custom-3"
             class="border border-gray-200 rounded p-2 w-full"
-            name="fotky"
-        />
-        <input
-        type="file"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="fotky"
-        />
-        <input
-        type="file"
-        class="border border-gray-200 rounded p-2 w-full"
-        name="fotky"
-        />
-    </div>--}}
+            name="images[]"
+            accept="image/" multiple/>
+        @unless(count($bazarItem->images) == 0)
+            @foreach($bazarItem->images as $image)
+                <img class="w-48 mr-6 mb-6" src="{{ asset('images/bazar/'.$image->image) }}" alt="Image">
+            @endforeach
+        @endunless
+        @error('images')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
+    </div>
 
     <div class="mb-6"><label for="popisek"class="inline-block text-lg mb-2">Popis</label><textarea class="border border-gray-200 rounded p-2 w-full"name="popisek"rows="10"placeholder="Napište všechny relevantní informace">{{$bazarItem->popisek}}</textarea>
     @error('popisek')

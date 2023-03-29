@@ -9,5 +9,9 @@ class Produkty extends Model{
     public $table = 'produkty';
     use HasFactory;
 
-    protected $fillable = ['pnazev', 'prok_vyroby', 'puvod', 'ppopisek', 'puvodni_fotka'];
+    protected $fillable = ['nazev', 'rok_vyroby', 'uvod', 'popisek', 'cena', 'uvodni_fotka',];
+
+    public function pimages(){
+        return $this->hasMany(Pimage::class);
+    }
 }

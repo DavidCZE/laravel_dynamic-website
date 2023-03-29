@@ -33,8 +33,8 @@
     <body>
         <nav class="flex justify-between items-center">
             <a href="/"
-                ><img class="w-36" src="images/logo.png" alt=""
-            /></a>
+                ><img class="w-36" src="{{ asset('images/logo.png') }}" alt="" />
+            </a>
             <ul class="flex align-middle content-center space-x-7 text-lg font-bold">
                 <li>
                     <a href="/" class="hover:text-royalblue">Domů</a>

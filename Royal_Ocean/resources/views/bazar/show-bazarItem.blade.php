@@ -1,5 +1,3 @@
-<?php Use App\Models\BazarImage; ?>
-
 @extends('layout')
 
 @section('content')
@@ -43,85 +41,14 @@
 
 
 </x-karta>
-
-<div>
-    @foreach ($images as $image)
-        <img src="{{ asset('storage/' . $image->path) }}" alt="">
+@unless(count($bazarItem->images) == 0)
+<div class="flex flex-wrap justify-center items-center">
+    @foreach($bazarItem->images as $image)
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+            <img class="w-full rounded-lg shadow-md" src="{{ asset('images/bazar/'.$image->image) }}" alt="Image">
+        </div>
     @endforeach
 </div>
-
-{{--@php
-$images = [];
-
-if (file_exists($bazarItem->fotka1)) {
-    $images[] = $bazarItem->fotka1;
-}
-@endphp
-
-<div class="glide">
-    <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
-        @foreach ($images as $image)
-          <li class="glide__slide">
-            <img src="{{ asset('storage/' . $image->filename) }}">
-          </li>
-        @endforeach
-      </ul>
-    </div>
-  </div>
-  --}}
-
-<div class="flex flex-wrap -mx-4">
-    @if($bazarItem->fotka1)
-    <div class="w-1/2 pl-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka1) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka2)
-    <div class="w-1/2 pr-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka2) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka3)
-    <div class="w-1/2 px-4">
-        <img class="object-contain h-80 w-full" src="{{ asset('storage/' . $bazarItem->fotka3) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka4)
-    <div class="w-1/2 px-4">
-        <img class="object-contain h-80 w-full" src="{{ asset('storage/' . $bazarItem->fotka4) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka5)
-    <div class="w-1/2 px-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka5) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka6)
-    <div class="w-1/2 px-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka6) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka7)
-    <div class="w-1/2 px-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka7) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka8)
-    <div class="w-1/2 px-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka8) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka9)
-    <div class="w-1/2 px-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka9) }}" />
-    </div>
-    @endif
-    @if($bazarItem->fotka10)
-    <div class="w-1/2 px-4">
-        <img class="w-full" src="{{ asset('storage/' . $bazarItem->fotka10) }}" />
-    </div>
-    @endif
-</div>
+@endunless
 
 @endsection

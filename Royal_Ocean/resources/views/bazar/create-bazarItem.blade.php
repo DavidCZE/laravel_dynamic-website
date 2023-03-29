@@ -11,41 +11,6 @@
 
 <form role="form" method="POST" action="/bazar" enctype="multipart/form-data">
     @csrf
-    <div class="mb-6">
-        <label
-            for="cena"
-            class="inline-block text-lg mb-2"
-            >Cena <span class="text-gray-500"> (v Kč)</span></label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="cena"
-            value="{{old('cena')}}"
-        />
-        @error('cena')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-
-    <div class="mb-6">
-        <label
-            for="rok_vyroby"
-            class="inline-block text-lg mb-2"
-            >Rok výroby</label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="rok_vyroby"
-            value="{{old('rok_vyroby')}}"
-        />
-
-        @error('rok_vyroby')
-            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-        @enderror
-
-    </div>
 
     <div class="mb-6">
         <label for="nazev" class="inline-block text-lg mb-2"
@@ -80,6 +45,43 @@
         />
 
         @error('znacka')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+        @enderror
+
+    </div>
+
+    <div class="mb-6">
+        <label
+            for="cena"
+            class="inline-block text-lg mb-2"
+            >Cena <span class="text-gray-500"> (v Kč)</span></label
+        >
+        <input
+            type="text"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="cena"
+            placeholder="Příklad: 12 399"
+            value="{{old('cena')}}"
+        />
+        @error('cena')
+        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
+    </div>
+
+    <div class="mb-6">
+        <label
+            for="rok_vyroby"
+            class="inline-block text-lg mb-2"
+            >Rok výroby</label
+        >
+        <input
+            type="text"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="rok_vyroby"
+            value="{{old('rok_vyroby')}}"
+        />
+
+        @error('rok_vyroby')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
 
@@ -156,127 +158,7 @@
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
     </div>
-{{--
-    <div class="mb-2">
-        <label for="fotka1" class="inline-block text-lg mb-2">
-            Fotky<span class="text-gray-500"> (nemusíte zaplnit všechna pole)</span>
-        </label>
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka1"
-            value="{{old('fotka1')}}"
-        />
-        @error('fotka1')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka2"
-            value="{{old('fotka2')}}"
-        />
-        @error('fotka2')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka3"
-            value="{{old('fotka3')}}"
-        />
-        @error('fotka3')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka4"
-            value="{{old('fotka4')}}"
-        />
-        @error('fotka4')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka5"
-            value="{{old('fotka5')}}"
-        />
-        @error('fotka5')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka6"
-            value="{{old('fotka6')}}"
-        />
-        @error('fotka6')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka7"
-            value="{{old('fotka7')}}"
-        />
-        @error('fotka7')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka8"
-            value="{{old('fotka8')}}"
-        />
-        @error('fotka8')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka9"
-            value="{{old('fotka9')}}"
-        />
-        @error('fotka9')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
-    <div class="mb-2">
-        <input
-            type="file"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="fotka10"
-            value="{{old('fotka10')}}"
-        />
-        @error('fotka10')
-        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    </div>
---}}
-{{--
-    <div class="form-group" style="padding-bottom: 15px">                            
-        <label for="images" class="inline-block text-lg mb-2">Nahrát fotky <span class="text-gray-400">(Označte a nahrajte všechny vybrané fotky najednou)</span></label>
-        <input class="border border-gray-200 rounded p-2 w-full"  type="file" name="images[]" multiple><br/>
-    </div>
---}}
+
 <div class="mb-6">
         <label for="images" class="inline-block text-lg mb-2">
             Fotky
@@ -287,7 +169,7 @@
             class="border border-gray-200 rounded p-2 w-full"
             name="images[]"
             accept="image/" multiple/>
-        @error('fotky')
+        @error('images')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
 </div>

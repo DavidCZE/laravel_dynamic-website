@@ -39,8 +39,15 @@
             Zavolejte nám: +420 123 456 789 </p>
         </div>
     </div>
-
-
 </x-karta>
+@unless(count($produkt->pimages) == 0)
+<div class="flex flex-wrap justify-center items-center">
+    @foreach($produkt->pimages as $pimage)
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+            <img class="w-full rounded-lg shadow-md" src="{{ asset('images/produkty/'.$pimage->pimage) }}">
+        </div>
+    @endforeach
+</div>
+@endunless
 
 @endsection

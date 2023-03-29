@@ -43,7 +43,7 @@
                     <form method="POST" action='/produkty/{{$produkt->id}}'>
                         @csrf
                         @method('DELETE')
-                        <button class="text-red-500"><i class="fa-solid fa-trash"></i> Vymazat</button>
+                        <button class="text-red-500" onclick="return confirm('Jste si jisti?');" type="submit"><i class="fa-solid fa-trash"></i> Vymazat</button>
                         </form>
                 </td>
             </tr>
