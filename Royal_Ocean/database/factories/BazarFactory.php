@@ -17,12 +17,12 @@ class BazarFactory extends Factory
     public function definition(): array
     {
         return [
-            'nazev' => $this->faker->firstNameMale(),
+            'nazev' => $this->faker->word(),
             'znacka' => $this->faker->company(),
-            'cena' => $this->faker->randomDigit(),
+            'cena' => $this->faker->numberBetween(49, 5000),
             'rok_vyroby' => $this->faker->year(),
             'uvod' => $this->faker->paragraph(1),
-            'popisek' => $this->faker->paragraph(7),
+            'popisek' => $this->faker->paragraph(15),
             'lokace'=> $this->faker->city(),
             'email' => $this->faker->email(),
             'cislo' => $this->faker->phoneNumber(),

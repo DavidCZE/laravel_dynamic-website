@@ -17,11 +17,11 @@ class ProduktyFactory extends Factory
     public function definition(): array
     {
         return [
-            'nazev' => $this->faker->firstNameFemale(),
-            'cena' => $this->faker->randomDigit(),
+            'nazev' => $this->faker->word(),
+            'cena' => $this->faker->numberBetween(100000, 5000000000),
             'rok_vyroby' => $this->faker->year(),
             'uvod' => $this->faker->paragraph(1),
-            'popisek' => $this->faker->paragraph(7),
+            'popisek' => $this->faker->paragraph(15),
 
         ];
     }

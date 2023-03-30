@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
             'email' => 'chuck@gmail.com'
         ]);
 
-        \App\Models\Produkty::factory(6)->create();
+        \App\Models\Produkty::factory(8)->create();
 
-        \App\Models\Bazar::factory(6)->create([
+        \App\Models\Bazar::factory(8)->create([
             'user_id' => $user->id
         ]);
 
-        \App\Models\Blog::factory(8)->create();
+        \App\Models\Blog::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
